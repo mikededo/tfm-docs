@@ -1,0 +1,78 @@
+\documentclass[../memory.tex]{subfiles}
+
+\begin{document}
+\chapter{Project structure}
+\section{Team}
+Esto no sé como preferís explicarlo. A tener en cuenta:
+\begin{enumerate}[label = -]
+  \item Sprints cada dos semanas.
+  \item Proyecto en GitHub con las tareas.
+  \item Anything else?
+\end{enumerate}
+\section{Backend}
+\section{Frontend}
+Regarding the frontend, the application will be stored in a monorepository. The
+idea of keeping the code in a single repository is to simplify the workflow of
+the developer or developers. By having a single repository, changes in the
+domain layer can be made at the same time that the presentation layer is
+updated. Nonetheless, this small architecture decisions will be explained more
+in depth in further sections.
+\subsection{Planning}
+When planning the work for the frontend project, our main goal was to avoid
+being blocked by backend progress. It is common for frontend and native
+developers to fall behind schedule because they are unable to progress until the
+backend is complete. One solution to reduce this lag between frontends and
+backends is to use GraphQL. However, in our case, we opted to apply GraphQL
+ideas in a RESTful API, resulting in the following steps:
+\begin{enumerate}[label = -]
+  \item Defining the expected request body of a specific endpoint, in order to
+    let the frontend know \emph{what the service expects to receive}.
+  \item Defining the response, if any, that an endpoint would return for a given call.
+\end{enumerate}
+This approach established a clear contract between the backend and the frontend,
+with separated implementations that both parties agreed to respect.
+\\
+To facilitate development, we used a service worker to mock every API call made
+in the local environment of a frontend developer. The service worker respected
+the specified contract, allowing us to develop the frontend without being
+blocked by the backend. Once the app was deployed, the service worker was
+disabled, and the API calls were made to the \emph{actual} RESTful API. This
+approach allowed for fast and non-blocking development for both frontend and
+backend.
+\\[8pt]
+The second thing to take into account before starting to structure and develop
+the frontend are the designs. Since there was not enough time to create a system
+design and then enough designs that would cover all use cases of our app, we
+opted for simple designs, which are shown in later sections. As a first sprint,
+or sprint zero, I was in charge of prototyping the frontend application, which
+would simplify the process of developing the frontend app.
+\\[8pt]
+Next steps are more involved in the development and architecture of the
+application. As explained in previous sections, we got together every two weeks,
+as well as keeping an asynchronous communication. We considered each meeting to
+be a deadline, and in the meeting we would discuss the next steps to take or
+changes if any. However, since there are always unexpected tasks, it has not
+been easy to strictly follow the devised roadmap. The following diagram
+illustrates an aproximate planning of the sprints.
+\\
+\textbf{TODO: Roadmap picture}
+\subsubsection{Sprint 0 and 1}
+As explained previously, the goal of the sprint 0 was to start prototyping the
+application. Since there was no system design defined, it took a bit more than
+two weeks to finish the prototypes, even though the were some part that would
+change in a future.
+\\
+The design not only helped us visualise the entities and important parts of our
+application, but also helped me architecture the monorepository. Once tool used
+to simplify the developer experience is Nx. Using such build system, tasks as
+having internal libraries and separated applications are easily handled.
+Therefore, the goal of the sprint 1 was to set up the repository and have it
+ready to roll. As I was defining the architecture of it, I was able to test
+possible use cases that I could come across while developing the frontend. This
+helped me prevent possible time-consuming issues, by handling them in an early
+stage.
+\subsubsection{Sprint 2}
+\subsubsection{Sprint 3}
+\subsubsection{Sprint 4}
+\subsubsection{Sprint 5}
+\end{document}

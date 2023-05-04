@@ -1,0 +1,92 @@
+\documentclass[a4paper, 12pt, oneside]{book}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[pagestyles]{titlesec}
+\usepackage{titletoc}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[a4paper, margin = 2.5cm, headheight=14pt]{geometry}
+\usepackage[hidelinks, colorlinks = false]{hyperref}
+\usepackage[bottom]{footmisc}
+\usepackage{bookmark}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage[labelfont = bf, hypcap = false]{caption}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage[titles]{tocloft}
+\usepackage[table]{xcolor}
+\usepackage{subfiles}
+
+\date{}
+
+\title{
+  \textbf{\huge Digital Travellers}
+  \\[8pt]
+  {An application for recurrent travellers}
+}
+\author{Miquel de Domingo i Giralt}
+
+\setmainfont{Helvetica Neue}[BoldFont = Helvetica Neue Bold]
+\setmonofont[Scale=0.9]{JetBrains Mono}
+
+
+% Variable with the page that keeps the footer style
+\def\footerstyle{- \fontsize{10pt}{10pt}\selectfont\thepage\ -}
+\pagestyle{fancy}
+% Remove the horizontal bar from the header
+\renewcommand{\headrulewidth}{0pt}
+% Clear everythihg
+\fancyhf{}
+% Set header style
+\rhead{\small\textit{\nouppercase{\rightmark}}}
+% Set the footer page number
+\fancyfoot[C]{\footerstyle}
+% Update the footer in chapter and other plain views
+\fancypagestyle{plain}{%
+    \renewcommand{\headrulewidth}{0pt}%
+    \fancyhf{}%
+    \fancyfoot[C]{\footerstyle}%
+}
+
+\setlength\parindent{0pt}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Tables format
+\definecolor{rowColor}{RGB}{242, 242, 242}
+\renewcommand{\arraystretch}{1.5}
+
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter. }{4pt}{\Huge}
+\titlespacing{\chapter}{0pt}{-32pt}{12pt}
+
+% Fix space in list of figures
+\cftsetindents{figure}{0em}{3.5em}
+\cftsetindents{table}{0em}{3.5em}
+
+\begin{document}
+\frontmatter
+\maketitle
+\newpage\null\thispagestyle{empty}\newpage
+\thispagestyle{empty}
+\begin{flushright}
+	\emph{TBD}
+\end{flushright}
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage\null\thispagestyle{empty}\newpage
+\mainmatter
+\chapter{Introduction, motivation, purpose and project goals}
+\chapter{Frame of work}
+\chapter{Project structure}
+\chapter{Theoretical background}
+\subfile{chapters/project-structure}
+\end{document}
