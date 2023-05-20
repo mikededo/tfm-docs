@@ -5,9 +5,9 @@
 \section{Team}
 Esto no sé como preferís explicarlo. A tener en cuenta:
 \begin{enumerate}[label = -]
-  \item Sprints cada dos semanas.
-  \item Proyecto en GitHub con las tareas.
-  \item Anything else?
+	\item Sprints cada dos semanas.
+	\item Proyecto en GitHub con las tareas.
+	\item Anything else?
 \end{enumerate}
 \section{Backend}
 \section{Frontend}
@@ -25,9 +25,9 @@ backend is complete. One solution to reduce this lag between frontends and
 backends is to use GraphQL. However, in our case, we opted to apply GraphQL
 ideas in a RESTful API, resulting in the following steps:
 \begin{enumerate}[label = -]
-  \item Defining the expected request body of a specific endpoint, in order to
-    let the frontend know \emph{what the service expects to receive}.
-  \item Defining the response, if any, that an endpoint would return for a given call.
+	\item Defining the expected request body of a specific endpoint, in order to
+	      let the frontend know \emph{what the service expects to receive}.
+	\item Defining the response, if any, that an endpoint would return for a given call.
 \end{enumerate}
 This approach established a clear contract between the backend and the frontend,
 with separated implementations that both parties agreed to respect.
@@ -71,8 +71,77 @@ ready to roll. As I was defining the architecture of it, I was able to test
 possible use cases that I could come across while developing the frontend. This
 helped me prevent possible time-consuming issues, by handling them in an early
 stage.
+\\
+One of the requirements for developing the application was to follow hexagonal
+architecture patterns and domain-driven design. However, frontend frameworks and
+technologies often deviate from traditional structures. For example, the React
+framework primarily uses composition over inheritance and follows a reactive
+paradigm. As a result, applying these concepts to the frontend posed a
+significant challenge. More details about the final design will be provided in
+subsequent chapters.
 \subsubsection{Sprint 2}
-\subsubsection{Sprint 3}
-\subsubsection{Sprint 4}
-\subsubsection{Sprint 5}
+Once the architecture was defined, the first goal of the sprint was to develop
+the frontend domain logic for user sign up and sign in. As the first code
+written for the core frontend, it was important to establish a solid structure
+that could easily accommodate changes. The initial architecture planning proved
+successful, with the following benefits:
+\begin{enumerate}[label = -]
+	\item The hexagonal architecture layers (domain, application, and
+	      infrastructure) could be easily decoupled.
+	\item The structure could be easily refactored and scaled as needed.
+	\item The domain logic was separated from the frontend implementation, making
+	      it reusable.
+\end{enumerate}
+Once the domain was defined and ready to be connected to a frontend application,
+the next step was to implement the authentication pages. This process was
+divided into two steps:
+\begin{enumerate}[label = \arabic{*}.]
+	\item Since most components had yet to be created, an initial implementation
+	      was created in the respective package. This implementation was open to
+	      modifications and designed to be reusable within different applications,
+	      although it was already attached to the React framework.
+	\item With the components created and the business logic defined, the last
+	      step was to connect both through the view layer.
+\end{enumerate}
+Once the architecture had been defined, the goal of the sprint was to start
+developing the domain of the frontend that will contain the logic to sign up and
+sign in a user. Being the first code written in the core of the frontend, it was
+very sensitive to change in terms of structure. However, the initial
+architecture planning turned out to work seamlessly well, this being:
+\begin{enumerate}[label = -]
+	\item Easily decoupling the diferent layers from the hexagonal architecture
+	      (domain, application and infrastructure).
+	\item Simplicity to escalate the context as well as to refactor it.
+	\item Containing only business logic code, being completely unaware of any
+	      frontend implementation, which allows such logic to be reused.
+\end{enumerate}
+Once the domain have been defined and was ready to be connected to a fronent
+application, the next step was to start implementing the authentication pages of
+the design. This process was divided in two steps:
+\begin{enumerate}[label = \arabic{*}.]
+	\item Most of the components had yet to be created, therefore an initial
+	      implementation, open to modifications, was created in the respective
+	      package. Note that, even though it is only used in one application, another
+	      idea of the components internal library is that it can be reused within
+	      different applications. However, it is already attached to a framework,
+	      which, in this case, is React.
+	\item Having the components created and the business logic defined, the last
+	      step was a simple as connecting both through the view layer.
+\end{enumerate}
+\subsubsection{Sprint 3 and further}
+The past few sprints have been somewhat relaxed due to some meetings coinciding
+with local bank holidays and being postponed. Nevertheless, the focus was on
+ensuring that the product meets its minimum requirements, which include listing
+travels created by the user, enabling the creation, update, and deletion of
+travels, and ensuring proper authentication protection for the application.
+\\[8pt]
+The initial implementation of the travel listing followed the agreements made
+during Sprint 0, but little thought had been given to its design, resulting in a
+rather poor implementation. However, after one of the meetings, we agreed on a
+more complex concept of travel, which required updating the initial core
+implementation of the frontend. Fortunately, the initial design was open to
+extension, making the required changes easy to implement. This was also a way of
+testing whether the structure of the context library was well-designed or not.
+\\[8pt]
+\textbf{TODO: Explain deployment process}
 \end{document}
