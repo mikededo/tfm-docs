@@ -1,0 +1,255 @@
+\documentclass[../memory.tex]{subfiles}
+
+\begin{document}
+\chapter{Cost analysis}
+After conducting a thorough planning and being conscious about all the tasks
+that are required to achieve the expected result, this chapter contains an
+analysis of the costs of this project, detailing the different investments that
+could be made.
+\\[8pt]
+It has been decided to divide investments dedicated to the project into two main
+categories: human related resources and non-human related resources.
+\\[8pt]
+Finally, provisions for contingencies and any unforeseen expenses that may arise
+are also taken into account.
+\section{Human costs}
+In any project, one of the key factors and usually the most expensive is the
+presonnel that will bring such project to live. In this case, the project is
+being developed by a group of students, as part of their degree's curriculum,
+meaning that there is no direct cost linked to the work done.
+\\[8pt]
+In order to analyse the human costs for this project, it is important to
+consider the different actors involved in it, and the time that will be spent in
+the project.
+\begin{enumerate}
+	\item\textbf{Students}. Students will require the major part of the budget. As
+	established by the university, the final project equals to 10 ECTS credits,
+	which corresponds to a time expenditure between 250 and 300 hours, each
+	student. In order to simplify the calculation, it has been supposed that
+	each student will spend 275 hours.
+	\item\textbf{Tutor}. On the other side, during the development of the project,
+	there were a set of scheduled meetings that involved the students and the
+	tutor of the project. The project lasts around 22 weeks, and it has been
+	estimated that, including the work outside the meetings plus the meetings,
+	the tutor would spend around 3h each week.
+\end{enumerate}
+\vspace*{8pt}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	\rowcolor{rowColor}
+	Actor                 & Hours/actor         & Num. of actors & Total hours \\
+	\hline
+	Student               & 275 hours           & 4              & 1100 hours  \\
+	\hline
+	Tutor                 & 66 hours            & 1              & 66 hours    \\
+	\hline
+	\multicolumn{3}{X|}{} & \textbf{1166 hours}                                \\
+	\cline{4-3}
+\end{tabularx}
+\captionof{table}{Human resources costs}
+\vspace*{8pt}
+Given this information, the total cost of each actor can be calculated through:
+\begin{center}
+	\[ T_c = C_{ha}(\texteuro/h) * N_h \]
+\end{center}
+In this equation, $T_c$ stands for the total actor cost; $C_{ha}$ stands for the
+cost for each hour of the actor working; $N_h$ stands for the number of hours to
+work.
+\\[8pt]
+It should be considered that, outside the academic scope, the costs for a
+project inside a company are incremented due to social security taxes.
+\section{Non-human costs}
+The non-human costs of a project refer to all those that are not directly
+associated with the individuals participating in its development but are equally
+necessary for its successful completion. These costs encompass a wide range of
+material resources and services required to carry out project tasks.
+\\
+In the case of the current software development project, non-human costs can be
+classified into three main categories: hardware costs, infrastructure costs, and
+indirect costs.
+\subsection{Hardware}
+The development of an application or a software design is required of a robust
+and reliable infrastructure. This infrastructure is essential for the
+implementation, testing and deployment of the application. The hardware costs
+can vary in price and include an extensive variety of items for the development
+and the testing of the product.
+\\
+In order to calculate the hardware costs, it has been taken into account the
+indispensable for the project development. In terms of deployment
+infrastructure, free-tier subscriptions have been used, meaning there is no
+initial need for an investement in terms of infrastructure. For the hardware
+elements, their life spand and their depreciation has also been taken into
+account.
+\\[12pt]
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	\rowcolor{rowColor}
+	Hardware              & Life span              & Aprox. unit cost & Total cost     \\
+	\hline
+	Personal computer     & 10 years               & 2.000\texteuro   & 8.000\texteuro \\
+	\hline
+	Mouse                 & 5 years                & 20\texteuro      & 80\texteuro    \\
+	\hline
+	Keyboard              & 5 years                & 50\texteuro      & 200\texteuro   \\
+	\hline
+	Headset               & 5 years                & 40\texteuro      & 160\texteuro   \\
+	\hline
+	\multicolumn{3}{X|}{} & \textbf{8440\texteuro}                                     \\
+	\cline{4-3}
+\end{tabularx}
+\captionof{table}{Hardware costs}
+\vspace*{8pt}
+Given this information, the total cost of each actor can be calculated through:
+\begin{center}
+	\[ T_c = C_u(\texteuro/h) * N_a \]
+\end{center}
+In this equation, $T_c$ stands for the total cost; $C_u$ stands for the cost for
+each unit; $N_a$ stands for the number of actors to work.
+\subsection{Infrastructure costs}
+In term of infrastructure, the costs correpond to the cloud services offered by:
+Google Cloud for the backend applications, and Vercel for the frontend. This
+tools offer a free-tier or a free-credit tier, for educational purposes. The
+team has taken advantage of this tiers to deploy the application.
+\\[8pt]
+Google Cloud offers a \$300 in credits to be used for 90 days. This allows the
+usage of an extensive catalog of services. In this case, the Google Kubernetes
+Engine (GKE) is the only service required. This service consists of a Kubernetes
+cluster self-managed.
+\\[8pt]
+Vercel, on the other hand, offers a free plan which is targeted to personal and
+educational projects. It includes unlimited bandwidth for static sites, 100GB
+for dynamic sites, as well as offering unlimited deployments and serverless
+functions.
+\\[12pt]
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	\rowcolor{rowColor}
+	Service               & Duration            & Pricing & Total cost \\
+	\hline
+	Google cloud          & 90 days             & \$300   & 0\texteuro \\
+	\hline
+	Vercel                & Unlimited           & \$0     & 0\texteuro \\
+	\hline
+	\multicolumn{3}{X|}{} & \textbf{0\texteuro}                        \\
+	\cline{4-3}
+\end{tabularx}
+\captionof{table}{Infrastructure costs}
+\subsection{Software expenses}
+The development of a product does not only imply associated costs to the
+infrastructure or hardware, but also to the tools and applications that allow
+the developers and teams to do their job. This can include operative systems,
+IDEs, project management software, databases, software libraries, frameworks,
+and so on.
+\\
+It is important to note that such costs can vary a lot depending in the specific
+needs of the project, and the desicions of the development team. In the case of
+the project, given its academic focus, the development team has taken advantage
+of free tools in order to minimize the costs.
+\\[12pt]
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	\rowcolor{rowColor}
+	Software                        & Cost                \\
+	\hline
+	Operative System                & 0\texteuro          \\
+	\hline
+	GitHub Organization             & 0\texteuro          \\
+	\hline
+	Discord                         & 0\texteuro          \\
+	\hline
+	IntellIJ Idea Community Edition & 0\texteuro          \\
+	\hline
+	Visual Studio Code              & 0\texteuro          \\
+	\hline
+	NeoVim                          & 0\texteuro          \\
+	\hline
+	Docker hub                      & 0\texteuro          \\
+	\hline
+	\multicolumn{1}{X|}{}           & \textbf{0\texteuro} \\
+	\cline{2-2}
+\end{tabularx}
+\captionof{table}{Software costs}
+\subsection{Indirect expenses}
+In the execution of the project, it is not relevant to take into account costs
+directly linked to the production of the final project, yet also include the
+costs that are indirect to the development of the project: the indirect costs.
+\\[8pt]
+The indirect costs are crucial in the economic evaluation of a project,
+otherwise, their omission can be translated in an underestimation of the
+required resources.
+\subsubsection{Electricity}
+The electricity consumption encompasses the use of computers, electronic
+devices, and workspace lighting. For this project, an average consumption of
+0.05 Wh per laptop and 0.01 Wh for workspace lighting has been estimated, with a
+total dedication time of 275 hours per team member for the master's thesis work.
+\begin{center}
+	\[ Consumption = Power * Time \]
+\end{center}
+\subsubsection{Internet connection}
+The development team requires of constant internet connection to investigate,
+communicate, access online resources and to develop. For this project, an
+average cost of 25\texteuro has been considered for each member of the
+team\cite{internet-cost}.
+\subsubsection{Workspace rental}
+The workspace is defined as the environment where each team member has carried
+out their part of the project. This cost is calculated taking into account the
+average rental price in Barcelona in 2022, which is estimated at 475\texteuro
+per month\cite{workspace-cost}
+\subsubsection{Office supplies}
+Office supplies necessary for the project, such as notebooks and pens, also
+constitute an indirect cost. For this project, an individual cost of 10\texteuro
+has been assumed for the acquisition of these materials.
+\subsubsection{Training and additional education}
+Although there have been no additional training costs for this project, it is
+important to consider it in the estimation of indirect costs. If the team needs
+to acquire additional knowledge for the project through courses, this would be
+an indirect cost to consider. However, given the wide range of free online
+training available and the education received during the master's program, a
+cost of 0\texteuro has been assumed.
+\subsubsection{Total indirect costs}
+The following table combines all the previous concepts:
+\\[12pt]
+\begin{tabularx}{\textwidth}{|X|X|X|}
+	\hline
+	\rowcolor{rowColor}
+	Indirect cost         & Unit cost           & Total cost \\
+	\hline
+	Electricity usage     & X                   & 0\texteuro \\
+	\hline
+	Internet connection   & X                   & 0\texteuro \\
+	\hline
+	Workspace rent        & X                   & 0\texteuro \\
+	\hline
+	Office material       & X                   & 0\texteuro \\
+	\hline
+	Additional training   & 0\texteuro          & 0\texteuro \\
+	\hline
+	Travel expenses       & X                   & 0\texteuro \\
+	\hline
+	\multicolumn{2}{X|}{} & \textbf{0\texteuro}              \\
+	\cline{3-3}
+\end{tabularx}
+\section{Contingencies}
+Contingency costs in a project represent a provision of funds included in the
+initial budget to address unforeseen events that were not anticipated during
+project planning. These unforeseen events can arise from various situations,
+such as technical difficulties discovered midway through the project,
+realization of risks, changes in scope requested by the project sponsor,
+initially unconsidered hidden requirements, among others. Therefore, it is
+essential for the success of a project to have a margin of maneuver.
+\\
+In the case of our master's project, we are working in the field of informatics.
+Based on the nature of this sector and previous experience, we have decided to
+allocate 10\% of the total project budget to contingency costs. This percentage
+reflects a balance between the risk we are willing to assume and the need to
+keep the budget within acceptable limits.
+\\[12pt]
+\begin{tabularx}{\textwidth}{|X|X|X|}
+	\hline
+	\rowcolor{rowColor}
+	Cost              & Contingency & Contingency cost \\
+	\hline
+	Electricity usage & X           & 0\texteuro       \\
+	\hline
+\end{tabularx}
+\end{document}
