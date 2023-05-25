@@ -175,6 +175,118 @@ The combination of both type of tests, unit and functional, provides a
 comprehensive testing approach that covers both the internal validation of each
 component and the overall verification of the system as a whole.
 \subsection{Backend concepts}
+The backend for the Recurrent travel appliction is the core of data processing
+in order to simplify the user experience in terms of finding travels. This
+application layer it is crucial for its functionality and system performance.
+However, it is not direclty exposed to the client, meaning that it will require
+of a frontend.
+\\
+When developing the frontend, it is really important to keep scalability and
+performance as the two main factors of the applications.
+\subsubsection{Gradle}
+Gradle is an advanced and flexible build automation system. Unlike other
+systems, it uses a Groovy-based language for its configuration file, which is
+more readable and easier to understand.
+\begin{enumerate}[label = -]
+	\item Dependency Management: It allows for efficient and flexible dependency
+	      management, which is vital in a project of this scale.
+	\item Automation: It is used to automate the build and deployment process,
+	      making updates easier and ensuring that all parts of the system are
+	      synchronized.
+	\item Versatility: It supports both Java-based projects and other languages
+	      like Kotlin, making it extremely flexible for any language change or future
+	      additions. This ensures that this project has the freedom to adapt and
+	      evolve over time.
+	\item Performance: It is designed to perform well in large-scale projects,
+	      thanks to features like caching and incremental execution. This means that
+	      only the parts of the project that have changed since the last build will be
+	      compiled, saving time and resources. This is especially valuable for this
+	      project, which can grow in complexity over time.
+	\item Integration with IDEs and CI/CD: It integrates well with popular
+	      integrated development environments (IDEs) like IntelliJ IDEA and Eclipse.
+	      This means that developers can use and manage Gradle directly from their IDE.
+	      It also integrates with continuous integration/delivery (CI/CD) tools like
+	      Jenkins and Travis CI, facilitating automatic deployment and updates.
+\end{enumerate}
+Therefore, the choice of Gradle for Recurrent travel not only facilitates
+dependency management and project automation but also provides a solid and
+flexible foundation for the project's evolution and growth in the future.
+\subsubsection{Java}
+Java is a widely used programming language known for its portability,
+efficiency, and support for object-oriented programming.
+\begin{enumerate}[label = -]
+	\item Portability: Java is platform-independent, allowing the backend code to
+	      run on any operating system that has the Java Runtime Environment (JRE)
+	      installed, facilitating deployment and scalability.
+	\item Maturity and Community Support: It has been a staple in the software
+	      industry for over two decades, which means it has a wealth of libraries,
+	      frameworks, and community support.
+	\item Reliability and Stability: Java has a long track record of reliability
+	      and stability, making it a safe choice for critical and large-scale
+	      applications. Its strong exception handling system and automatic garbage
+	      collector help minimize errors and prevent memory leaks, improving overall
+	      application robustness.
+	\item Security: Java was designed with security in mind. Its security features
+	      include a strong type system, bytecode verification before execution, and
+	      absence of pointers, helping prevent common errors that can lead to security
+	      vulnerabilities.
+	\item Support for Enterprise Development: It provides a rich ecosystem of
+	      frameworks and libraries for enterprise development, such as Spring,
+	      Hibernate, and Apache Camel, among others. These tools simplify the
+	      implementation of a variety of backend functionalities, from database access
+	      and security to integration with other systems and services.
+\end{enumerate}
+Therefore, choosing Java as the programming language for the backend of
+Recurrent travel provides a solid and robust foundation for building a secure,
+scalable, and high-performance application.
+\subsubsection{Spring boot}
+Spring Boot is a framework that simplifies the configuration and deployment of Spring-based applications. In the context of "Recurrent Travel":
+\begin{enumerate}[label = -]
+	\item Rapid Development: It provides default configuration that accelerates
+	      development by eliminating the need for extensive manual configuration.
+	\item Integration: It integrates with many tools and libraries, such as
+	      Hibernate for data persistence and Spring Security for security, making it
+	      easy to implement these features.
+	\item Integration with DevOps: It integrates well with DevOps practices and
+	      tools. For example, it integrates with Jenkins for continuous integration
+	      and with Docker for containerization, facilitating development, testing, and
+	      deployment of applications.
+\end{enumerate}
+In summary, choosing Spring Boot for the development of this project enables
+quick startup, scalability, and easy maintenance. Its wide range of features and
+integrations facilitate the creation of a high-quality application that meets
+the demands and expectations of frequent travelers.
+\subsubsection{Unit test}
+The implementation of testing is a crucial component to ensure software quality and user satisfaction in this project. In the context of unit testing, technologies like JUnit and Mockito are used.
+\\[8pt]
+JUnit is the most widely used unit testing framework for Java that helps developers design and execute tests to verify the behavior of small units of code, such as individual methods or classes. In this project, using JUnit provides the following benefits:
+\begin{enumerate}[label = -]
+	\item Quality Assurance of Code: By using JUnit for unit testing, it can be
+	      ensured that each unit of code functions correctly before integration. This
+	      helps detect and correct errors early in the development cycle.
+	\item Facilitates Updates and Maintenance: Unit tests with JUnit facilitate
+	      updates and maintenance of the application. Whenever a change is made to the
+	      code, unit tests can be executed to ensure that the changes haven't
+	      introduced new errors.
+\end{enumerate}
+Mockito is a popular Java mocking framework used to mimic objects and
+behaviors of the test class. For the project, Mockito can be used to
+simulate application logic that is not directly related to the code unit
+being tested, such as database dependencies. The benefits of Mockito in this
+context include:
+\begin{enumerate}[label = -]
+	\item Isolation of Code Units for Testing: It allows creating simulated
+	      objects (mocks) of external dependencies, meaning that unit tests can focus
+	      on the code under test without worrying about the behavior of dependencies.
+	      This makes the tests more reliable and easier to write.
+	\item Simulation of Diverse Test Scenarios: It is possible to simulate a
+	      variety of test scenarios, such as the behavior of the application when an
+	      external service fails or returns unexpected data. This helps ensure that
+	      Recurrent travel can properly handle these situations in production.
+\end{enumerate}
+In summary, the combination of JUnit and Mockito enables comprehensive and
+effective unit testing in "Recurrent Travel," resulting in more reliable and
+maintainable software.
 \subsection{Frontend concepts}
 In terms of frontend development, it is important to consider the same concepts
 mentioned in the first section. Although more details will be covered in future
