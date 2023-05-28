@@ -86,6 +86,43 @@ planning and management of their habitual travels.
 Given the importance and frequency of business travel and the growing trend of
 employees taking care of their own reservations, it is crucial to address the
 callenges faced by these recurrent travelers.
+\section{Solution proposal}
+Throughout the project, we will focus on critical topis in software engineering.
+The hexagonal architecture will be addressed due to its ability to facilitat the
+development maintenance, and modification of software by separating
+responsibilities into logical layers, thus promoting efficient code maintenance
+for the product.
+\\[8pt]
+Domain-Drive Design (DDD) is an architecture pattern that emphasizes in solving
+specific business problems, improving communication and the efficiency of the
+software model. Applying DDD will help us create software that is more
+understandable and effective by focusing on the different domain concepts of
+Recurrent Travel.
+\\[8pt]
+Additionaly, the SOLID principles will be used ofr designing a modular,
+understandable, and extensible software. These principles are essential for
+establishing quality and maintainability standards in software component design.
+It also ensures the creation of a robust, reliable, and easily maintainable
+solution.
+\\[8pt]
+To ensure reliability and proper functioning of our application, testing and
+validation techniques will be implemented.. Continuous Integration (CI) and
+Continuous Development (CD) will also be taken into account as part of the
+development cylce. Automation and version deployment will also take a spot in
+the cycle.
+\\[8pt]
+Furthere, the integration with external systems will also be studied. This can
+improve the efficiency of our software solution by leveraging the functionality
+of other existing services in the market.
+\\[8pt]
+Finally, the importance of good practices in software development will be
+strongly emphasized, focusing on resource management, risk mitigation, effective
+communication, and develivering an mvp that meets customer expectations.
+\\
+Ultimately, this master's thesis project aims to offer an effective and
+efficient solution to enhance the experience of recurrent travelers, enabling
+them to optimize their trips and facilitate the planning and management of their
+regular travels.
 \section{Topics and concepts}
 Before moving into the details of the project, it is fundamental to be
 familiarised with some key concepts regarding software architecture and design,
@@ -240,7 +277,8 @@ Therefore, choosing Java as the programming language for the backend of
 Recurrent travel provides a solid and robust foundation for building a secure,
 scalable, and high-performance application.
 \subsubsection{Spring boot}
-Spring Boot is a framework that simplifies the configuration and deployment of Spring-based applications. In the context of "Recurrent Travel":
+Spring Boot is a framework that simplifies the configuration and deployment of
+Spring-based applications.
 \begin{enumerate}[label = -]
 	\item Rapid Development: It provides default configuration that accelerates
 	      development by eliminating the need for extensive manual configuration.
@@ -257,9 +295,14 @@ quick startup, scalability, and easy maintenance. Its wide range of features and
 integrations facilitate the creation of a high-quality application that meets
 the demands and expectations of frequent travelers.
 \subsubsection{Unit test}
-The implementation of testing is a crucial component to ensure software quality and user satisfaction in this project. In the context of unit testing, technologies like JUnit and Mockito are used.
+The implementation of testing is a crucial component to ensure software quality
+and user satisfaction in this project. In the context of unit testing,
+technologies like JUnit and Mockito are used.
 \\[8pt]
-JUnit is the most widely used unit testing framework for Java that helps developers design and execute tests to verify the behavior of small units of code, such as individual methods or classes. In this project, using JUnit provides the following benefits:
+JUnit is the most widely used unit testing framework for Java that helps
+developers design and execute tests to verify the behavior of small units of
+code, such as individual methods or classes. In this project, the usage of JUnit
+provides the following benefits:
 \begin{enumerate}[label = -]
 	\item Quality Assurance of Code: By using JUnit for unit testing, it can be
 	      ensured that each unit of code functions correctly before integration. This
@@ -314,7 +357,7 @@ Fortunately, there are tools that simplify this maintenance, known as build
 tools. In the JavaScript world, a tool called Nx has gained significant
 popularity. Translated from its documentation: \emph{Nx is a next-generation build
 	system with first-class support for mono-repositories and powerful
-	integrations.}
+	integrations.}\cite{nx}
 \\[8pt]
 The use of such a tool significantly simplifies the maintenance of JavaScript
 and/or TypeScript mono-repositories. Some of its other strong points are:
@@ -364,7 +407,7 @@ and static websites. On the Next.js homepage, they provide the following
 description: \emph{Used by some of the world's largest companies, Next.js
 	enables you to create full-stack Web applications by extending the latest React
 	features, and integrating powerful Rust-based JavaScript tooling for the fastest
-	builds}.
+	builds}\cite{nextjs}.
 \\[8pt]
 Development with Next.js involves structuring the code in a specific way so
 that the compiler can generate packages in the most efficient manner,
@@ -415,15 +458,16 @@ used that extends Jest's capabilities. This library is \emph{testing-library},
 and its specific plugins for React have been used.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.2\textwidth]{./assets/logos/jest-logo.png}
-	\caption{Jest logo}
+	\includegraphics[width=0.2\textwidth]{./assets/logos/cypress-logo.png}
+	\caption{Cypress logo}
 \end{figure}
 At the acceptance testing level, the repository is set up to run acceptance
 tests using the cypress.io framework. Cypress is more than just a testing tool.
 It provides a graphical user interface to see what is being tested, where it
 fails, and other features. It is an extremely powerful tool for UI testing,
 which has always been a challenging topic. As stated on its website,
-\emph{Cypress enables you to write faster, easier, and more reliable tests}.
+\emph{Cypress enables you to write faster, easier, and more reliable
+	tests}\cite{cypress}.
 \section{Stakeholders}
 In the context of the \emph{Recurrent Travel} project, the goal is to simplify
 the experience of recurrent travelers through an application that notifies them
@@ -433,7 +477,7 @@ interested in the project, as well as understanding their need.
 \\
 In the next sections, the interested parties will be identified for the projet.
 It has been decided to organise the stakeholders in a power/interest
-model\cite{stakeholders-power-interes} in order to simplify the visualization of
+model\cite{stakeholders-power-interest} in order to simplify the visualization of
 the information and simplify the analysis. Such model can be widely found in
 the definition of engineering requirements.
 \begin{figure}[H]
@@ -524,7 +568,162 @@ cost optimization. Therefore, the proposal of Recurrent travel positions itself
 as an innovative solution in the actual market, with the potential to
 significantly enhance the experience of frequent travelers.
 \section{Scope}
-To be determinated
+\subsection{Goals}
+The master's thesis project Recurrent travel aims to develop a web application
+that assists recurrent travelers in optimizing the planning and management of
+their regular trips, offering a personalized and efficient solution for finding
+the best travel deals based on their preferences. To achieve this objective, the
+following sub-objectives have been identified:
+\begin{enumerate}[label = -]
+	\item Specific needs of recurrent travelers, particularly those who travel
+	      frequently for work, family, or personal reasons, are identified and
+	      analyzed.
+	\item The current market of travel applications and services is investigated
+	      to determine opportunities and gaps in relation to the needs of frequent
+	      travelers.
+	\item An easy-to-use web application is designed and developed, accessible
+	      from various devices, allowing users to configure personalized trips by
+	      specifying the route, preferred hours, ideal price, and travel frequency.
+	\item Efficient search algorithms and techniques are implemented to find
+	      relevant travel opportunities for users, utilizing Crawling/Scrapping
+	      techniques and public APIs.
+	\item A notification system is developed to timely and effectively inform
+	      users about travel opportunities that match their preferences.
+	\item The quality and maintainability of the developed software are ensured
+	      by applying SOLID principles, Domain-Driven Design, hexagonal
+	      architecture, and testing and validation techniques.
+	\item The application is integrated with external systems and cloud
+	      environments using continuous integration and deployment techniques to
+	      increase software efficiency and ensure the rapid and constant delivery of
+	      improvements.
+	\item The application is integrated with different flight search platforms
+	      like Skyscanner.
+	\item The security and privacy of user data, including preferences, travel
+	      history, and personal information, are guaranteed.
+	\item The application is developed within an agile framework, focusing on
+	      iterative and continuous value delivery, with defined delivery times to
+	      ensure a timely response to business needs and adaptability to changes in
+	      requirements.
+\end{enumerate}
+\subsection{Functional requirements}
+The functional requirements describe the specific functionalities that the
+Recurrent travel application must provide to meet its objectives and satisfy
+user needs. The main functional requirements of the project are as follows:
+\begin{enumerate}
+	\item User authentication: The application must allow users to register and
+	      authenticate to access their personal accounts and manage their
+	      preferences and recurrent trips.
+	\item Recurrent travel configuration: Users should be able to configure
+	      recurrent trips by specifying the origin and destination, preferred dates,
+	      and travel frequency.
+	\item Flight opportunities search: The application must periodically
+	      and automatically search for travel opportunities that match user
+	      preferences, using Crawling/Scrapping techniques and/or public APIs.
+	\item Filtering and result operations: The application must be able to
+	      filter and sort search results for travel opportunities, considering the
+	      corresponding user and the corresponding alert configuration.
+	\item Flight opportunity notifications: The application must send
+	      notifications to users when travel opportunities that match their
+	      preferences are found, either by email or through messaging applications.
+	\item Travel alerts management: Users should be able to manage received alerts by
+	      marking them as read, archiving them, or deleting them, as well as modify
+	      their notification preferences.
+	\item Flight booking: Although it is not necessary for the application to
+	      allow direct flight booking, it should facilitate the process by providing
+	      links to airline websites or travel providers where users can complete the
+	      reservation.
+\end{enumerate}
+\subsection{Non-functional requirements}
+The non-functional requirements are those that describe the quality
+characteristics of the system, such as usability, performance, security, and
+scalability, among others. The main non-functional requirements of the
+Recurrent travel project are as follows:
+\begin{enumerate}
+	\item Usability: The application must be easy to use and have an intuitive
+	      and appealing interface, with a clear and consistent navigation structure
+	      and presentation of information that facilitates user understanding and
+	      decision-making.
+	\item Performance: The application must be capable of performing travel
+	      opportunity searches quickly and efficiently, offering results in a
+	      reasonable time, even during high demand periods or with a large number of
+	      concurrent users.
+	\item Security: The application must protect users' personal information
+	      and preferences by applying appropriate security measures, such as data
+	      encryption, authentication and authorization, and prevention of common
+	      attacks like SQL injection or cross-site scripting.
+	\item Availability: The application must be available at all times,
+	      ensuring high uptime and the ability to recover quickly from possible
+	      failures or service interruptions.
+	\item Scalability: The application must be able to scale to support the
+	      growth in the number of users and resource demands, both in terms of
+	      infrastructure and functionalities. This involves the ability to add new
+	      servers, load balancing, and improving application performance as
+	      necessary.
+	\item Interoperability: The application must be able to interact and
+	      integrate with external systems, such as airline APIs, using common
+	      standards and protocols.
+	\item maintainability: The application's source code must be easy to
+	      understand, modify, and maintain, following established design principles
+	      and patterns, such as hexagonal architecture, Domain-Driven Design, and
+	      SOLID principles. Additionally, version control practices and adequate
+	      documentation should be implemented to facilitate collaboration and
+	      long-term project maintenance.
+	\item Privacy and compliance: The application must comply with applicable
+	      laws and regulations regarding the protection of personal data and user
+	      privacy within the European framework.
+\end{enumerate}
+\subsection{Risks and barriers}
+During the development process of the Recurrent travel project, several
+challenges and barriers may arise that, if not taken into account, could result
+in project failure or hinder its success. The following is an analysis of the
+main challenges and barriers that may be faced:
+\begin{enumerate}
+	\item Changes in project requirements: Changes in project requirements may
+	      occur throughout the application development, whether they are functional
+	      or non-functional, requiring adjustments in the design and implementation.
+	      These modifications could delay project progress and increase its
+	      complexity and associated costs. To address this risk, it is essential to
+	      properly plan and prioritize requirements, maintain constant communication
+	      with stakeholders, and be flexible in adapting to changes.
+	\item External applications integrations: The Recurrent travel application
+	      will heavily depend on integration with external APIs and services from
+	      airlines and travel providers. Access to these systems may be limited,
+	      unstable, or change without prior notice, which would affect the
+	      application's functionality and create issues in obtaining up-to-date and
+	      accurate information. To mitigate this risk, it is crucial to establish
+	      recovery mechanisms in case of failures, perform frequent integration
+	      testing, and consider the possibility of using multiple data sources to
+	      ensure information availability.
+	\item Scalability and performance problems: If the application experiences a
+	      rapid increase in the number of users and resource demands, scalability
+	      and performance issues may arise, negatively impacting the user
+	      experience. To address this risk, it is critical to design and implement a
+	      scalable architecture, using appropriate techniques and technologies such
+	      as cloud computing and load balancing, that allow adaptation to the
+	      changing project needs.
+	\item Privacy and compliance: The Recurrent travel application must comply
+	      with applicable laws and regulations regarding the protection of personal
+	      data and user privacy, which may pose challenges in implementing security
+	      measures and respecting users' rights. To tackle this risk, it is
+	      essential to stay informed about applicable regulations and incorporate
+	      privacy practices from the design stage, ensuring that the application
+	      meets legal requirements and safeguards user information.
+	\item Time and resource limitations: The master's project has a limited time
+	      for completion and may face constraints in terms of available resources,
+	      such as the development team's time and allocated budget. These
+	      limitations could affect the ability to successfully complete the project
+	      within the established timeframe. To address this risk, it is crucial to
+	      conduct proper planning, set realistic goals, and prioritize tasks based
+	      on their importance and urgency.
+	\item Market compeitition: The travel and transportation applications market
+	      is highly competitive, with numerous players offering similar solutions.
+	      This could make it challenging to differentiate "Recurrent Travel" and
+	      position it in the market. To tackle this risk, it is essential to
+	      identify and communicate the application's competitive advantages, such as
+	      its focus on frequent travelers. Additionally, staying informed about
+	      market trends and advancements, as well as being willing to adapt and
+	      continuously improve the application based on user needs, is crucial.
+\end{enumerate}
 \section{Working methodology}
 In further sections, the working methodology is explained in more depth.
 Nonetheless, from the early beginning, the team decided to divide the work in
