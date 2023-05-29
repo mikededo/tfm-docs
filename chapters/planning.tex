@@ -2,270 +2,252 @@
 
 \begin{document}
 \chapter{Planning}
-\section{Task division}
-Recurrent Travel is supported by a team of four professionals responsible for
-the application development. One has expertise in frontend, one in full stack
-development, and the remaining two have expertise in backend development and
-devops. Despite each member having specific expertise in their respective
-fields, the team is cross-functional, and the project development can be carried
-out by them without the need for external dependencies.
+The goal of this chapter is to explain how the frontend application has been
+planned, organised and developed. In order to be the most time efficient,
+planning is a key aspect before starting to develop. Furthermore, before
+starting to develop the frontend, a minimal UI (user interface) should be
+created, since it will fasten the development.
 \\
-The project consists of the following elements:
+It is also important to note that the planning should also keep free time for
+the writing of the thesis, as it is also part of the project.
+\section{Sprint planning}
+When planning the work for the frontend project, our main goal was to avoid
+being blocked by backend progress. It is common for frontend and native
+developers to fall behind schedule because they are unable to progress until the
+backend is complete. One solution to reduce this lag between frontends and
+backends is to use GraphQL. However, in our case, we opted to apply GraphQL
+ideas in a RESTful API, resulting in the following steps:
 \begin{enumerate}[label = -]
-	\item A user interface application to allow the user to interact with the
-	      application.
-	\item Four services that include the backend server logic, database management
-	      and data scrapping.
-	\item A backend communication system, such as a queue, to allow the different
-	      services to communicate between them.
+	\item Defining the expected request body of a specific endpoint, in order to
+	      let the frontend know \emph{what the service expects to receive}.
+	\item Defining the response, if any, that an endpoint would return for a given call.
 \end{enumerate}
-Taking into account this proposal and the abilities of each team member of the
-team, the division of the responsibilities is distributed considering that the
-majority of the work focuses on backend development. Therefore, most part of the
-resources are assigned to the backend, with specialised members leading and
-executing tasks related to such area. The member with strong knowledge in
-interface design and frontend development will be assigned to the development of
-the user interface, user experience and frontend business logic. The planning
-and overall structure of the project are taken care by the member with knowledge
-in software architecture and design. Code quality, testing and similar aspects
-are elements that each member will have to handle by themselves. Lastly, the
-entire development is overseen and coordinated by a project leader.
+This approach established a clear contract between the backend and the frontend,
+with separated implementations that both parties agreed to respect.
+\\
+To facilitate development, we used a service worker to mock every API call made
+in the local environment of a frontend developer. The service worker respected
+the specified contract, allowing us to develop the frontend without being
+blocked by the backend. Once the app was deployed, the service worker was
+disabled, and the API calls were made to the \emph{actual} RESTful API. This
+approach allowed for fast and non-blocking development for both frontend and
+backend.
 \\[8pt]
-With the previous parameters in mind, the initial planning consisted in the
-creation of the tickets in order to be able to accomplish the expected tasks,
-which were defined every two weeks. It is also worth mentioning that tasks could
-vary in time, as it is really hard to detect possible problems or issues in the
-development, when planning the tasks.
+The second thing to take into account before starting to structure and develop
+the frontend are the designs. Since there was not enough time to create a system
+design and then enough designs that would cover all use cases of our app, we
+opted for simple designs, which are shown in later sections. As a first sprint,
+or sprint zero, I was in charge of prototyping the frontend application, which
+would simplify the process of developing the frontend app.
+\\[8pt]
+Next steps are more involved in the development and architecture of the
+application. As explained in previous sections, we got together every two weeks,
+as well as keeping an asynchronous communication. We considered each meeting to
+be a deadline, and in the meeting we would discuss the next steps to take or
+changes if any. However, since there are always unexpected tasks, it has not
+been easy to strictly follow the devised roadmap. The following diagram
+illustrates an aproximate planning of the sprints.
+\\
+It is important to note that this initial planning is really subjective to
+changes, as in any app development, there may be incidents, bugs, or other
+issues that could temporarily block the development of the application.
+Nonetheless, the goal was to stick as much as possible to the expected plan.
+Also, Sprint 0 has not been added to the schema since it can be merged with the
+tasks in the Sprint 1.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{./assets/planning-organization.png}
-	\caption{Task distribution as a schema}
+	\includegraphics[width=\textwidth]{./assets/roadmap.png}
+	\caption{Initial sprint planning}
 \end{figure}
-It is important to point out that during the development of the process the each
-member of the team is not exclusively focused in the tasks described above,
-rather it contributes and collaborates to the execution of the assigned tickets
-to other members, when help is needed, helping diminish the handicaps of the
-project.
+Aside from the Sprint 0 and 1 section, other sections consist of two weeks.
+\section{Sprint development}
+\subsection{Sprint 0 and 1}
+As explained previously, the goal of the sprint 0 was to start prototyping the
+application. Since there was no design system defined, it took a bit more than
+two weeks to finish the prototypes, even though the were some part that would
+change in a future.
 \\
-At the same time, there are tasks that are executed by all members of the team
-and are part of the global work required to develop the project:
+The design not only helped us visualise the entities and important parts of our
+application, but also helped me architecture the monorepository. Once tool used
+to simplify the developer experience is Nx. Using such build system, tasks as
+having internal libraries and separated applications are easily handled.
+Therefore, the goal of the sprint 1 was to set up the repository and have it
+ready to roll. As I was defining the architecture of it, I was able to test
+possible use cases that I could come across while developing the frontend. This
+helped me prevent possible time-consuming issues, by handling them in an early
+stage.
+\\
+One of the requirements for developing the application was to follow hexagonal
+architecture patterns and domain-driven design. However, frontend frameworks and
+technologies often deviate from traditional structures. For example, the React
+framework primarily uses composition over inheritance and follows a reactive
+paradigm. As a result, applying these concepts to the frontend posed a
+significant challenge. More details about the final design will be provided in
+subsequent chapters.
+\subsection{Sprint 2 and 3}
+Once the architecture was defined, the first goal of the sprint was to develop
+the frontend domain logic for user sign up and sign in. As the first code
+written for the core frontend, it was important to establish a solid structure
+that could easily accommodate changes. The initial architecture planning proved
+successful, with the following benefits:
 \begin{enumerate}[label = -]
-	\item Definition of the rules in terms of code (using tools that validate a
-	      certain style of code, also known as linters) and to contribute to each
-	      repository.
-	\item Planning of the expected work to be finished for each sprint.
-	\item Code review of each developed task, in order to provide a second opinion
-	      in the code \emph{to be merged}.
-	\item Study, evaluation and proposal of technologies both for development and
-	      deployment of the systems to be developed.
+	\item The hexagonal architecture layers (domain, application, and
+	      infrastructure) could be easily decoupled.
+	\item The structure could be easily refactored and scaled as needed.
+	\item The domain logic was separated from the frontend implementation, making
+	      it reusable.
 \end{enumerate}
-Being more specific, the following are the tasks for each team member.
-\begin{enumerate}[label =]
-	\item\textbf{Miquel de Domingo - Frontend}
-	\begin{enumerate}[label = -]
-		\item\textbf{Website design}. Involves all the proposed user interface
-		designs that the application will have, including responsive designs
-		for small screen devices, since the application will be accessed
-		through the browser.
-		\item\textbf{Configuration of CI and CD}. This task involves design and
-		execution of strategies that provide frontend repository with
-		continuous integration and deployment strategies.
-		\item\textbf{Interactivity control}. As the frontend developer, along
-		with the design, it should be capable to structure a coherent flow of
-		activities and actions that the user will be taken through while
-		interacting with the application, leveraging and experience.
-		\item\textbf{Usage of REST APIs}. The frontend application should be
-		capable to communicate with the backend services in order to provide
-		the expected user experience in terms of persitence.
-		\item\textbf{Planning and management of GitHub Projects}. As a team that
-		uses agile methodologies to make ends meet, this task involves the
-		member to structure the team's rules and finding tools that align with
-		the chosen methodology.
-	\end{enumerate}
-	\item\textbf{Adrià Manero - Backend and DevOps}
-	\begin{enumerate}[label = -]
-		\item\textbf{Configuration of CI and CD}. This task involves design and
-		execution of strategies that provide backend repositories with
-		continuous integration and deployment strategies.
-		\item\textbf{Development of the user auth}. The service should be
-		responsible for the direct communication with the frontend user, with
-		the usage of an API gateawa to redirect requests to other backend
-		services.
-		\item\textbf{Development of the notification service}. The service should
-		be responsible for triggering the expected notifications received by
-		the search service, for each created alert.
-		\item\textbf{Development of the event bus}. This component will allow
-		backend services to subscribe to message queues and trigger events for
-		each request based on the queue.
-	\end{enumerate}
-	\item\textbf{Carlos Jefferson - Backend}
-	\begin{enumerate}[label = -]
-		\item\textbf{Backend repository setup}: To maximize the shared expertise
-		in Java and Gradle among the backend professionals, each service was
-		placed in repositories with consistent configuration templates,
-		providing a standardized starting point.
-		\item\textbf{Swagger integration}. The Swagger library should be
-		incorporated in order to simplify the asynchronous development between
-		the frontend and the backend. Thus, the swagger docs should be the
-		only source of truth.
-		\item\textbf{Configuration service creation}. This service manages user
-		registration of recurrent trips and generates alerts for the search
-		service. It also handles persistence of user-defined recurrent trips.
-	\end{enumerate}
-	\item\textbf{Luisa Salazar - Backend}
-	\begin{enumerate}[label = -]
-		\item\textbf{Context diagram}: This task involves the definition of the
-		diagrams that will provide a general view of the architecture of the
-		systems, including the frontend application to the backend services.
-		\item\textbf{Domain layer modelling}. Involves defining the shema that
-		will be used in the database, as well as modelling such entities in
-		the domain layer, including their logic, for each service that
-		requires it.
-		\item\textbf{Communication schema definition}. It is important to have
-		defined the JSON schemas that will be used to communicate between the
-		backend services. This JSON schemas will benefit the development of
-		the request/responses sent to the message broker.
-		\item\textbf{Development of the search engine}. The search engine should
-		be able to perform the search and obtain results, if any, for the
-		travel alerts created by each user. At the same time, it is
-		responsible to send the results obtained to the message broker in
-		order to be able to send notifications to the user.
-	\end{enumerate}
+Once the domain was defined and ready to be connected to a frontend application,
+the next step was to implement the authentication pages. This process was
+divided into two steps:
+\begin{enumerate}[label = \arabic{*}.]
+	\item Since most components had yet to be created, an initial implementation
+	      was created in the respective package. This implementation was open to
+	      modifications and designed to be reusable within different applications,
+	      although it was already attached to the React framework.
+	\item With the components created and the business logic defined, the last
+	      step was to connect both through the view layer.
 \end{enumerate}
-\section{Project management system}
-As a project management approach, the development team followed an Agile
-methodology combined with an adapted Kanban approach. This allowes the creating
-of a comprehensive project management approach philosophy tailored to the team
-and a concrete plan for delivering a high-quality project.
+Since there was not a lot of logic involved, it was possible to stick to the
+original plan, and start developing the frontend views (log in and register
+pages).
 \\
-This decision was made taking into account the necessities of the project, the
-team and the approach to develop the project. Each of the member of the team
-already has experience working with agile methodologies and are familiarised
-with the principles of it. The usage of this methodology aims to:
+Once the logic architectue had been defined, the goal of the sprint was to start
+developing the domain of the frontend that will contain the logic to sign up and
+sign in a user. Being the first code written in the core of the frontend, it was
+very sensitive to change in terms of structure. However, the initial
+architecture planning turned out to work seamlessly well, this being:
+\begin{enumerate}[label = -]
+	\item Easily decoupling the diferent layers from the hexagonal architecture
+	      (domain, application and infrastructure).
+	\item Simplicity to escalate the context as well as to refactor it.
+	\item Containing only business logic code, being completely unaware of any
+	      frontend implementation, which allows such logic to be reused.
+\end{enumerate}
+Once the domain have been defined and was ready to be connected to a fronent
+application, the next step was to start implementing the authentication pages of
+the design. This process was divided in two steps:
+\begin{enumerate}[label = \arabic{*}.]
+	\item Most of the components had yet to be created, therefore an initial
+	      implementation, open to modifications, was created in the respective
+	      package. Note that, even though it is only used in one application, another
+	      idea of the components internal library is that it can be reused within
+	      different applications. However, it is already attached to a framework,
+	      which, in this case, is React.
+	\item Having the components created and the business logic defined, the last
+	      step was a simple as connecting both through the view layer.
+\end{enumerate}
+Authentication pages require of a very basic layout, and most of the logic
+happens in the form. However, as the logic had already been implemented in the
+core package, such logic required only to be connected with the components.
+Therefore, it simplified a lot the development of the view.
+\\
+Initially it may not seem as an advantage, however if ever appeared the
+necessity of developing another application that required the same logic, it
+would mean that it could be reused. Therefore, the developers could only focus
+in the implementation of the frontend, and then attaching the logic to it.
+\subsection{Sprint 4 and 5}
+For most of the tasks, to development of them involves a first implementation of
+the business logic, a second part which may be optional which involves the
+development of the required components, and a third one that is to involves
+applying the logic to the view.
+\\[8pt]
+Similar to the authentication pages, the first task of the dashboard page
+involved creating the initial travel mode. In the dashboard page, the user can
+see a list of travels and interact with them. The interaction or management
+would be later developed. The travel model is quite complex, as it is
+fetched from the backend in a specific model, meaning that it should be parsed
+and transformed to the expected object.
+\\
+Another setback that appeared during the development of the logic for the
+dashboard was the travel model changes, which implied having to add, update or
+delete all fields that differed. As some parts of the dashboard already included
+the usage of the intial proposition of the travel model, the specific parts had
+to be updated.
+\\
+This exposed one of the common problems between the core package and the
+frontend implementations that use that package. Any breaking change in the core,
+as it is the updation of a model, can generate side-effects to the frontend that
+depends on it. Knowing this issue, I came up with two solutions:
 \begin{enumerate}
-	\item Encouraging collaboration between the mebmers, as the methodology is
-	      collaborative in its nature, promoting teamwork and shared decision-making.
-	\item Ensuring a fast delivery of results, as it promotes constant and time
-	      effective delivery cycles. This allows for early feedback and continuous
-	      improvement.
-	\item Valuing people over processes, acknowledging the diversity of team
-	      members and adapting in each iteration, in order to accommodate individual
-	      circumstances and needs.
+	\item First would be to create a versioning of the packages, meaning that the
+	      frontend would depend on a concrete version of the core package. At start it
+	      could be a good solution, yet it can be really easy to start leaving
+	      frontends outdated. The update of the frontend is not inevitable, but it
+	      would allow the team to update the changes in the main branch, and migrate
+	      each frontend step by step.
+	\item Second would be to work in feature branches, meaning that for every
+	      breaking change in the core package, all the affected applications would be
+	      updated accordingly. This implies that the team would have to focus on the
+	      migration in order to accept the new changes.
 \end{enumerate}
-\subsection{Agile but not scrum}
-It is important to note that the agile methodology has been adapted to the
-development of the project, as it is not tied to Scrum, because of the team work
-dynamics, time constraints and asynchronous disponibility. Scrum methodologies
-implies a more synchronous ceremonies which the team was not able to satisfy.
-Nonetheless, the team has successfully had biweekly meetings, which included
-work presentation, revision in order to obtain feedback for what has been
-developed, and planning for next meetings.
+In this case, second option was chosen as versioning the packages was not
+something planned from the starting point and, even though it is possible to be
+added, updating all frontends was more simple. Additionally, only one
+application had to be updated.
+\subsection{Sprint 6}
+In the sixth sprint, the team agreed to focus in writing the common parts of the
+memory for the thesis. The goal was to finish as soon as possible such common
+parts and later start writing non-common parts.
+\\
+Even though it was not a complex part, the team required of more coordination
+than usual to start writing the common parts. A part or some parts were assigned
+to each member, and a shared Google Docs containted all the parts.
+\\
+After a groupal revision, a couple of changes needed to be made, meaning that
+the memory common parts task would expand to more that the one sprint, as
+initially planned.
+\subsection{Sprint 7 and 8}
+These sprints were planned to be focused on the development of the travel
+management from the frontend. However, as a team we agreed to \emph{push} the
+memory and finish the common parts as soon as possible. This resulted in
+stopping the development of the frontend temporarily.
 \\[8pt]
-Consequently, the team has been based in a Kanban methodology, which suits
-perfectly to the needs of the project, as it provides a truly simple approach to
-find an equilibrium between work that needs to be done and the disponibility of
-each team member. The Kanban methodology it is based in a continuous improvement
-methodology, in which tasks are extracted from a list of pending actions from
-the constant workflow.
+Once the common part had been written or more advanced, the team could focus
+back on the development. As explained in any previous task, first came the
+modelling of the alerts. Inside the core package, there was already a lot of
+business logic for the alerts, which required only to be extended by adding the
+possibility to create, update and delete the travels.
+\\
+Next, only a couple of components were created or required
+modification/extension. Inputs, buttons, text and so on had already been created
+as were required by the other tasks.
+\\
+Finally, the connection between the logic and the frontend components. In
+further chapters it will be explained in more depth, yet this tasks also require
+a bit of state management. The library used to manage API calls and caching such
+calls is also used as a state management solution. This helps reduce the logic
+to be implemented in the core application, as it can be kept stateless.
+\\
+All this tasks include the respective testing, both in the core and in the UI
+components.
 \\[8pt]
-To sum up, for the current team, the combination of both methodologies has
-allowed us to develop fast, asynchronously and in parallel.
-\section{Project management tool}
-In line with the project management methodology adopted, the team also relies on
-a tool to aid in the planning and to find a more efficient management of the
-work to be carried out. The usage of such task-tracking tool, it simplifies the
-creation, management and listing of task to do, in progress and completed.
+Even though the development of this sprint seems really straightforward, it
+included more frontend logic than the other tasks. Basically, any action
+(creation, updation or deletion) of an alert should update the dashboard table.
+However, as a commonly known problem in React it is the amount of rendering that
+must be done, for any state changes. This topic will be explained in later
+chapters, yet the architectural decisions that impacted performance were made
+during this sprints.
+\subsection{Sprint 9 and further}
+As the memory took up part of the previous sprints, it was at this point that
+the initial planning started to tumble. As explained in the beginning, the
+roadmap was just an idea to align with the rest of the team on what to focus.
+Nonetheless, during the majority of the time, it was possible to stick to the
+roadmap.
 \\
-By using this tool, the team can streamline the planning process and ensure
-effective and asynchronous time management. The team and each member is able to
-prioritise the tasks to be completed in each sprint, track their progress and
-monitor the status by looking at the board.
-\\
-This approach helps each member to have a better organization of the work,
-improving efficientcy, and enhancing collaboration. The task-tracking tool
-simplifies task management and provides a visual representation of the
-\emph{state of the work}.
+The management of travel tasks required more time for full development,
+resulting in an underestimation of the total workload. As a result, these tasks
+were not resolved until the 12th sprint. Another factor contributing to the
+extended time required was the simultaneous development of the automated
+application deployment process. This deployment is a critical task as it allows
+access to the MVP outside of the local development environment. Additionally, as
+a team, we needed to ensure that all connections, from the frontend application
+to the backend application, functioned seamlessly.
 \\[8pt]
-There are many different taks-tracking tools and systems, both for agile and
-non-agile project management. However, the team has prioritised keeping the
-project simple and finding the maximium automation with the minimum
-configuration, as key aspects for the tool to choose. This has lead the team to
-opt for GitHub Projects, an integrated tool within the GitHub application, over
-what could be considered its major competitor, Jira.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.85\textwidth]{./assets/jira-vs-github.png}
-	\caption{Comparison between Jira and GitHub projects}
-\end{figure}
-The features of Jira simplified in the above chart, present it as a
-task-managing tool for more complex projects. However, considering the specific
-development characteristics of this project, it is clear that the time
-constraints play an important role in preferring one tool over the other. This
-is a short-term project, and requires a mangement tool that primarly allows the
-organization of issues and provides an easy visualisation. Nonetheless, GitHub
-projects can be scalable to bigger projects, which would allow future teams to
-keep using it as their task-managing tool.
+With all this in mind, there was very little, to any time to develop the
+settings page. Also, since there was no service nor endpoint to update the user
+settings (also because of time constraints), such task was not developed.
 \\
-Therefore, the features provided by GitHub Projects's boards, as an adaptable
-and flexible tool that enables tracking and planning of work within the code
-repository, are ideal for the execution of this project. It also facilitates the
-organization of tasks and provides a straightforward way to visualise the status
-of their resolution.
-\section{GitHub Projects}
-\subsection{Team organization}
-In order to properly develop the project, the GitHub organization members have
-been divided in two teams. The \emph{backend} team consisting of the
-three\footnote{Adrià Manero, Luisa Salazar and Carlos Jefferson} members with
-backend related tasks. The \emph{frontend} team consisting of the
-member\footnote{Miquel de Domingo} with frontend related tasks.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{./assets/gh-teams.png}
-	\caption{Comparison between Jira and GitHub projects}
-\end{figure}
-The goal of having projects within the project is to reflect the structure of
-the team with mentions and permissions in a cascade format. The members of each
-team can send notifications to an entire team or ask for reviews for a team.
-There, each member of the team will receive the notiication. GitHub
-organizations allow the creating of teams, which can have sub-teams within. In
-the current team structure, such nested level is not required.
-\subsection{Board view}
-The board of a project is what allows the developers to visualise the state of
-the project. It can accept from issues defined in the board (not linked to any
-repository), issues linked to a repository and even pull requests, specific for
-a repository aswell. It also allows filtering and grouping by many different
-options. This filtering and grouping can also be stored as views in a separate
-tab.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{./assets/gh-board.png}
-	\caption{Visualisation of the board}
-\end{figure}
-Since GitHub does not have the concept of sprints, the team has used milestones
-as an alternative to defining the sprints. Even though milestones are repository
-specific, they can be grouped for different repositories as long as they have
-the same name.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{./assets/gh-board-milestone.png}
-	\caption{Visualisation of the board, grouping by milestones}
-\end{figure}
-Another benefit of directly using the board from GitHub is the possibility of
-constantly being up-to-date with the project status, as the project will also be
-updated with the activity (creation of pull requests and issues) of each
-repository.
-\\
-It also allows to have personalized field for each ticket, allowing the team to
-add extra information just with the visualisation of the ticket. In this case,
-the following meta-information has been defined for each ticket:
-\begin{enumerate}[label = -]
-	\item Status. The status allows the developers to know if the ticket is in the
-	      backlog, ready to be developed, in progress, in review or waiting to be
-	      reviewed, and done, in case the ticket has been merged successfully.
-	\item Project. A small tag that gives information to which project the ticket
-	      is related.
-	\item Priority. It allows to know which tickets should be prioritised over
-	      others.
-\end{enumerate}
-The addition of such fields is fairly simpler than its competitors.
+Furthermore, end-to-end tests were also skipped because of time constraints.
 \end{document}
