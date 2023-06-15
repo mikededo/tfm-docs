@@ -9,7 +9,7 @@ the frontend application development, it is more explanatory than the backend
 structure section.
 \subsection{Initial challenges}
 Before defining how would the repository or repositories of the frontend would
-be, a first challeng arised regarding the usage of hexagonal architecture.
+be, a first challenge arose regarding the usage of hexagonal architecture.
 \\
 While the hexagonal architecture can be applied to various types of
 applications, including frontend applications, it is not commonly used in modern
@@ -62,10 +62,10 @@ Taking this into account, two options software design ideas were over the table:
 \begin{enumerate}
 	\item Finding a code structure that would allow the developers to apply most
 	      of the hexagonal architecture patterns.
-	\item Not applygin hexagonal architecture patterns and sticking to
+	\item Not applying hexagonal architecture patterns and sticking to
 	      having business logic within the frontend.
 \end{enumerate}
-Obviously each option has advantages and disavantages. Therefore, in order to
+Obviously each option has advantages and disadvantages. Therefore, in order to
 decide which option was more suitable or preferred for the current case, I
 answered the following questions, for each possibility:
 \begin{enumerate}
@@ -86,12 +86,12 @@ answered the following questions, for each possibility:
 		      \item \textbf{HA}: Straightforward, as the domain is decoupled from the
 		            framework and can be shared with other frontend applications
 		            easily, without the need of any modification. The domain of
-		            the frontend must be frontend framework agnostic.
+		            the frontend must be frontend framework-agnostic.
 		      \item \textbf{NHA}: Difficult, as the business logic is tightly coupled
 		            with the frontend framework, making it challenging to extract and
 		            share the domain with other applications. Moreover, each
 		            framework may have different methods to separate business
-		            logic from components, making this methods non-compatible
+		            logic from components, making these methods non-compatible
 		            between each framework.
 	      \end{enumerate}
 	\item How attached is the domain to the framework?
@@ -119,7 +119,7 @@ answered the following questions, for each possibility:
 		      \item \textbf{HA}: Less likely, as the hexagonal architecture promotes
 		            modularity and the separation of concerns, which can lead to more
 		            efficient code and better control over the bundle size.
-		            Nontheless, it requires a strict analysis to the code and
+		            Nonetheless, it requires a strict analysis to the code and
 		            bundle size, in order to split as much code as possible,
 		            ensuring the minimal bundle size. Furthermore, utilities
 		            such as lazy loading and server-side rendering can also have
@@ -129,7 +129,7 @@ answered the following questions, for each possibility:
 		            sizes, potentially affecting the user experience. However,
 		            lazy loading and server-side rendering can reduce the amount
 		            of JS sent to the client, thus reducing the latency for the
-		            page to load. Furtheremore, configuration would be less
+		            page to load. Furthermore, configuration would be less
 		            complex as in the \textbf{HA} approach, were multiple
 		            bundles would have to be configured, as well as proper
 		            configuration to serve such bundles.
@@ -175,7 +175,7 @@ is based on the following reasons:
 	the future. By separating the core business logic from external
 	dependencies and infrastructure concerns, the application becomes more
 	flexible and adaptable to evolving requirements.
-	\item\textbf{Code seusability and sharing}: The hexagonal architecture
+	\item\textbf{Code reusability and sharing}: The hexagonal architecture
 	allows the domain logic to be decoupled from the frontend framework,
 	facilitating sharing of the domain with other frontend applications or
 	even backend systems. This promotes code reuse, improved collaboration
@@ -206,11 +206,11 @@ development.
 \subsection{Architecture solution}
 Being someone who has never had professional experience on working in projects
 that use hexagonal architecture or a variant of it, it was quite a challenge to
-define an software architecture that would work with the hexagonal architecture.
+define a software architecture that would work with the hexagonal architecture.
 Some aspects about the architecture were clear:
 \begin{enumerate}
 	\item There should be a package or a module that will include the domain of
-	      the enterprise. This domain \textbf{must} be independent from the UI logic,
+	      the enterprise. This domain \textbf{must} be independent of the UI logic,
 	      therefore, frontend framework independent.
 	\item The frontend implementation should use the infrastructure layer of the
 	      domain module, which will abstract the business logic, therefore completely
@@ -225,14 +225,14 @@ In addition, it is essential to have a design system or component library that
 is attached to the frontend framework but agnostic to the specific domain. This
 entails the existence of at least one package per framework used in any frontend
 application, providing a collection of base components (such as input fields,
-dialogs, and buttons) that can be utilized across different apps. For instance,
+dialogues, and buttons) that can be utilized across different apps. For instance,
 if there is a React application, it should have a React component library that
 is designed to be extendable and modular, allowing for reusability throughout
 the entire enterprise. This component library serves as a centralized repository
 for commonly used UI components, ensuring consistency in design and user
 experience across different applications built with the same frontend framework.
 \\
-Even though this libraries will not follow an hexagonal architecture from top to
+Even though these libraries will not follow a hexagonal architecture from top to
 bottom, they will take advantage of some of its principles.
 \\[8pt]
 Finally, each frontend application will combine the shared domain, the shared
@@ -243,7 +243,7 @@ naming as the \emph{domain} from the hexagonal architecture principles. The
 domain package it is separated in three layers: domain, application, and
 infrastructure. Each layer corresponds to each layer in the hexagonal
 architecture and is going to be developed accordingly. However, the
-infrastructure layer is slightly different than it commonly is. Normally, the
+infrastructure layer is slightly different from it commonly is. Normally, the
 last layer of the HA\footnote{Hexagonal architecture, for short} is the
 infrastructure, yet in this specific design, it will only be the last layer of
 the domain package. This last layer is going to be used in the frontend, which
@@ -255,13 +255,13 @@ architecture.
 	\caption{Four layer hexagonal architecture}
 \end{figure}
 As explained previously, the domain must be frontend framework independent,
-therefore it should not know anything about what is in the outter layer. This
-respects to the hexagonal architecture princpiles and allow us to have a domain
-package that can be shared by many frontend, independent of their technology.
+therefore it should not know anything about what is in the outer layer. This
+respects to the hexagonal architecture principles and allow us to have a domain
+package that can be shared by many frontends, independent of their technology.
 \subsubsection{Infrastructure layer}
 The application layer has little to add, since it does not differ an
 implementation that can be found in other projects that use hexagonal
-architcture.
+architecture.
 \\[8pt]
 Delving deeper into the structure of the domain package, the domain and
 application layers have been implemented following the principles of the
@@ -274,8 +274,8 @@ retrieval.
 \\
 The purpose of these entry points is to decouple the fetching function, which
 can be implemented using either the native `fetch` function or a dedicated
-package like `axios` from the frontend. The infrastructure layer of the domain
-package will simply provide a function that utilizes an HTTP client to
+package like \texttt{axios} from the frontend. The infrastructure layer of the
+domain package will simply provide a function that utilizes an HTTP client to
 communicate with an external server. The frontend can then make use of this
 entry point without needing to be aware of the underlying implementation
 details.
@@ -305,7 +305,7 @@ modularity. It ensures that the frontend remains focused on its primary
 responsibilities while leveraging the domain logic through well-defined entry
 points.
 \\[8pt]
-This entrypoints are exposed, as a package, named as queries. A query is a
+These entrypoints are exposed, as a package, named as queries. A query is a
 function, as explained above, that can either be a validator (i.e. a validator
 for an input field) or an HTTP client call (i.e. a function that fetches all the
 travels from a user).
@@ -331,7 +331,7 @@ reducing duplication. Using queriers brings several benefits to the application:
 	\item\textbf{Consistency}. By implementing the domain contract within
 	queriers, all queries adhere to the same interface. This promotes
 	consistency in how queries are structured and ensures that they fulfill the
-	expected behavior specified by the domain contract. This is one of the core
+	expected behaviour specified by the domain contract. This is one of the core
 	principles of HA.
 	\item\textbf{Code reusability}. Queriers can be reused across different use
 	cases, allowing for efficient and modular development. The same querier
@@ -342,24 +342,24 @@ reducing duplication. Using queriers brings several benefits to the application:
 	allocation is avoided, leading to better performance and resource
 	management.
 \end{enumerate}
-Since DDD (domain-driven design) is used, this implementation allow the
-developers to separate each \emph{queries} and \emph{queriers} by domain, or
-even bounded contexts\footnote{Since the application does not require the usage
-	of bounded contexts, the packages have been separated by domain (i.e.
+Since DDD (domain-driven design) is used, this implementation allows the
+developers to separate \emph{queries} and \emph{queriers} by domain, or even
+bounded contexts\footnote{Since the application does not require the usage of
+	bounded contexts, the packages have been separated by domain (i.e.
 	authentication or travels) in a single bounded context}. The implementation of
 multiple domains looks as:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{./assets/core-multi-domain.png}
 	\caption{Exemplification of the implementation of multiple domains in the
-		propsed architecture.}
+		proposed architecture.}
 \end{figure}
-It is important to mention that, ideally, domains \emph{should not interactuate
+It is important to mention that, ideally, domains \emph{should not interact
 	between each other}.
 \subsection{Shared components}
 Once the domain architecture has been defined, the next step was to create an
 internal package, within the monorepository, that would contain all the
-components. Since the goal of this project is to also develop an scalable and
+components. Since the goal of this project is to also develop a scalable and
 extendable architecture, it was decided to create a new UI module that would
 have the implementation of the components from the "design system" for each
 framework. For example, in this case, the UI package only contains a
@@ -371,7 +371,7 @@ each library will be compiled and used independently. In the long term, the team
 could have a unique design system, implemented in different languages or
 frameworks.
 \\[8pt]
-This components should be domain independent, therefore they should as much
+These components should be domain independent, therefore they should as much
 extendable as possible. With the appearance of React, component-based frameworks
 have adopted the principle of \emph{composition over inheritance}. This
 principle encourages building components by composing smaller, reusable
@@ -404,12 +404,12 @@ Taking into account our current architecture, by adding the component library:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{./assets/ui-core.png}
-	\caption{Combination of core and ui packages.}
+	\caption{Combination of core and UI packages.}
 \end{figure}
 It is important to mention that the \emph{System Design} pill should not be an
-implementation, rather an specification, defined and maintainted by the UI/UX
+implementation, rather a specification, defined and maintained by the UI/UX
 team. Since there was not enough time to develop a system design, this box does
-not exists in the project current status.
+not exist in the project current status.
 \subsection{Site application}
 Last but not least is the Nx application, which serves as the front-facing layer
 of our architecture and contains the Next.js application that the users will
@@ -426,8 +426,8 @@ state management and elements that enhance the user experience, such as
 animations, performance optimizations, resource caching, and other related
 aspects.
 \\
-By detaching the domain logic and component implementation to the core an UI
-layers, the site application will contain a clearer anc consier codebae. This
+By detaching the domain logic and component implementation to the core a UI
+layers, the site application will contain a clearer and conciser codebase. This
 separation improves code maintainability, since modifications in either
 components or domain logic can be made in the respective layers, without having
 a direct impact to the frontend. Furthermore, this separation also allows the
@@ -436,7 +436,7 @@ chapters.
 \\[8pt]
 The implementation of the site package will be explained in the following
 chapter, as it will focus on such implementation, explaining the decisions taken
-in order to use all the power of Next.Js, in order to provide a better user
+in order to use all the power of Next.js, in order to provide a better user
 experience. To sum up with this chapter, the integration of the site package
 with the previous packages is:
 \begin{figure}[H]

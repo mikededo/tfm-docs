@@ -47,7 +47,7 @@ as well as keeping an asynchronous communication. We considered each meeting to
 be a deadline, and in the meeting we would discuss the next steps to take or
 changes if any. However, since there are always unexpected tasks, it has not
 been easy to strictly follow the devised roadmap. The following diagram
-illustrates an aproximate planning of the sprints.
+illustrates an approximate planning of the sprints.
 \\
 It is important to note that this initial planning is really subjective to
 changes, as in any app development, there may be incidents, bugs, or other
@@ -65,10 +65,10 @@ Aside from the Sprint 0 and 1 section, other sections consist of two weeks.
 \subsection{Sprint 0 and 1}
 As explained previously, the goal of the sprint 0 was to start prototyping the
 application. Since there was no design system defined, it took a bit more than
-two weeks to finish the prototypes, even though the were some part that would
+two weeks to finish the prototypes, even though there were some part that would
 change in a future.
 \\
-The design not only helped us visualise the entities and important parts of our
+The design not only helped us visualize the entities and important parts of our
 application, but also helped me architecture the monorepository. Once tool used
 to simplify the developer experience is Nx. Using such build system, tasks as
 having internal libraries and separated applications are easily handled.
@@ -106,26 +106,26 @@ divided into two steps:
 	      was created in the respective package. This implementation was open to
 	      modifications and designed to be reusable within different applications,
 	      although it was already attached to the React framework.
-	\item With the components created and the business logic defined, the last
+	\item With the components created, and the business logic defined, the last
 	      step was to connect both through the view layer.
 \end{enumerate}
 Since there was not a lot of logic involved, it was possible to stick to the
 original plan, and start developing the frontend views (log in and register
 pages).
 \\[8pt]
-Once the logic architectue had been defined, the goal of the sprint was to start
+Once the logic architecture had been defined, the goal of the sprint was to start
 developing the domain of the frontend that will contain the logic to sign up and
 sign in a user. Being the first code written in the core of the frontend, it was
 very sensitive to change in terms of structure. However, the initial
 architecture planning turned out to work seamlessly well, this being:
 \begin{enumerate}[label = -]
-	\item Easily decoupling the diferent layers from the hexagonal architecture
+	\item Easily decoupling the different layers from the hexagonal architecture
 	      (domain, application and infrastructure).
 	\item Simplicity to escalate the context as well as to refactor it.
 	\item Containing only business logic code, being completely unaware of any
 	      frontend implementation, which allows such logic to be reused.
 \end{enumerate}
-Once the domain have been defined and was ready to be connected to a fronent
+Once the domain have been defined and was ready to be connected to a frontend
 application, the next step was to start implementing the authentication pages of
 the design. This process was divided in two steps:
 \begin{enumerate}[label = \arabic{*}.]
@@ -135,7 +135,7 @@ the design. This process was divided in two steps:
 	      idea of the components internal library is that it can be reused within
 	      different applications. However, it is already attached to a framework,
 	      which, in this case, is React.
-	\item Having the components created and the business logic defined, the last
+	\item Having the components created, and the business logic defined, the last
 	      step was a simple as connecting both through the view layer.
 \end{enumerate}
 Authentication pages require of a very basic layout, and most of the logic
@@ -146,12 +146,12 @@ Therefore, it simplified a lot the development of the view.
 Initially it may not seem as an advantage, however if ever appeared the
 necessity of developing another application that required the same logic, it
 would mean that it could be reused. Therefore, the developers could only focus
-in the implementation of the frontend, and then attaching the logic to it.
+on the implementation of the frontend, and then attaching the logic to it.
 \subsection{Sprint 4 and 5}
 For most of the tasks, to development of them involves a first implementation of
 the business logic, a second part which may be optional which involves the
-development of the required components, and a third one that is to involves
-applying the logic to the view.
+development of the required components, and a third one that involves applying
+the logic to the view.
 \\[8pt]
 Similar to the authentication pages, the first task of the dashboard page
 involved creating the initial travel mode. In the dashboard page, the user can
@@ -163,20 +163,20 @@ and transformed to the expected object.
 Another setback that appeared during the development of the logic for the
 dashboard was the travel model changes, which implied having to add, update or
 delete all fields that differed. As some parts of the dashboard already included
-the usage of the intial proposition of the travel model, the specific parts had
+the usage of the initial proposition of the travel model, the specific parts had
 to be updated.
 \\[8pt]
 This exposed one of the common problems between the core package and the
 frontend implementations that use that package. Any breaking change in the core,
-as it is the updation of a model, can generate side-effects to the frontend that
+as it is the update of a model, can generate side effects to the frontend that
 depends on it. Knowing this issue, I came up with two solutions:
 \begin{enumerate}
 	\item First would be to create a versioning of the packages, meaning that the
-	      frontend would depend on a concrete version of the core package. At start it
-	      could be a good solution, yet it can be really easy to start leaving
-	      frontends outdated. The update of the frontend is not inevitable, but it
-	      would allow the team to update the changes in the main branch, and migrate
-	      each frontend step by step.
+	      frontend would depend on a concrete version of the core package. At
+	      start, it could be a good solution, yet it can be really easy to start
+	      leaving frontends outdated. The update of the frontend is not
+	      inevitable, but it would allow the team to update the changes in the
+	      main branch, and migrate each frontend step by step.
 	\item Second would be to work in feature branches, meaning that for every
 	      breaking change in the core package, all the affected applications would be
 	      updated accordingly. This implies that the team would have to focus on the
@@ -193,11 +193,11 @@ parts and later start writing non-common parts.
 \\
 Even though it was not a complex part, the team required of more coordination
 than usual to start writing the common parts. A part or some parts were assigned
-to each member, and a shared Google Docs containted all the parts.
+to each member, and a shared Google Docs contained all the parts.
 \\
-After a groupal revision, a couple of changes needed to be made, meaning that
-the memory common parts task would expand to more that the one sprint, as
-initially planned.
+After a group revision, a couple of changes needed to be made, meaning that the
+memory common parts task would expand to more that the one sprint, as initially
+planned.
 \subsection{Sprint 7 and 8}
 These sprints were planned to be focused on the development of the travel
 management from the frontend. However, as a team we agreed to \emph{push} the
@@ -225,11 +225,11 @@ components.
 \\[8pt]
 Even though the development of this sprint seems really straightforward, it
 included more frontend logic than the other tasks. Basically, any action
-(creation, updation or deletion) of an alert should update the dashboard table.
+(creation, update or deletion) of an alert should update the dashboard table.
 However, as a commonly known problem in React it is the amount of rendering that
 must be done, for any state changes. This topic will be explained in later
 chapters, yet the architectural decisions that impacted performance were made
-during this sprints.
+during these sprints.
 \subsection{Sprint 9 and further}
 As the memory took up part of the previous sprints, it was at this point that
 the initial planning started to tumble. As explained in the beginning, the
@@ -242,7 +242,7 @@ resulting in an underestimation of the total workload. As a result, these tasks
 were not resolved until the 12th sprint. Another factor contributing to the
 extended time required was the simultaneous development of the automated
 application deployment process. This deployment is a critical task as it allows
-access to the MVP outside of the local development environment. Additionally, as
+access to the MVP outside the local development environment. Additionally, as
 a team, we needed to ensure that all connections, from the frontend application
 to the backend application, functioned seamlessly.
 \\[8pt]

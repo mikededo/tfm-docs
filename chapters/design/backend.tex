@@ -29,10 +29,10 @@ A service-based architecture typically involves communication between different
 services or applications. This challenge is commonly addressed by implementing a
 message queue, which allows backends to subscribe to and publish events.
 \\[8pt]
-Another important aspect about each backend service desing is that it has been
-written using using an hexagonal architecture approach, combined with
-domain-driven design.
-\subsection{Api gateway}
+Another important aspect about each backend service design is that it has been
+written using a hexagonal architecture approach, combined with domain-driven
+design.
+\subsection{API gateway}
 The backend consists of multiple services, with each service having a specific
 functionality. However, it is important that clients using this backend are
 unaware of its internal structure. If clients were aware of each individual
@@ -69,7 +69,7 @@ maintenance in the long run.
 	\caption{Example benefits of the API gateway}
 \end{figure}
 The above figure exemplifies the benefits of the API gateway. On the one hand,
-we can have as many frontends as wanted connected to the gateway. It works as a
+we can have as many frontends as want connected to the gateway. It works as a
 façade to what is behind. On the other hand, the microservices will also only
 communicate with the gateway, satisfying the contract specified.
 \subsection{Service-based architecture}
@@ -80,8 +80,8 @@ apply other software architecture patterns such as hexagonal architecture.
 \\
 Even though all backends have been written in Java, which is the predominant
 language known by the team members, each service could have been written in a
-different language. Such features are helpful in an enviornment and team that
-aspires for an scalable, easy to maintain, and robust ecosystem.
+different language. Such features are helpful in an environment and team that
+aspires for a scalable, easy to maintain, and robust ecosystem.
 \\[8pt]
 The microservices are as follows:
 \begin{figure}[H]
@@ -116,16 +116,16 @@ the user and configuration services. That is because the search service is made
 to work internally and share the results to the other services.
 \\
 The gateway will forward authentication calls to the user service, i.e. requests
-regarding registering and loggin in, or a webservice to refresh the
+regarding registering and authenticating, or a web-service to refresh the
 authentication token of a user. It will send the configuration of the travels to
 the configuration service. This service will store all the travel alerts for the
 user, as well as notifying the search service to start performing the required
 search.
 \subsection{Event driven architecture}
-When the configuration service requests for a list of results to the searh
+When the configuration service requests for a list of results to the search
 service, it could keep a connection between the two applications. However, this
 behaviour is not performant at all, as the more requests there are, the more
-blocked the applications will be. This is trabslated to an extremely poor
+blocked the applications will be. This is translated to an extremely poor
 performance from our backend, as well as an extensive amount of resource usage.
 \\
 Therefore, the solution is to establish asynchronous communication between the
