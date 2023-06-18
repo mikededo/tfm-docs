@@ -9,19 +9,52 @@ their travel needs is no longer feasible, especially when they have fixed routes
 that repeat in specific daily cycles, whether for work, academic, or established
 project purposes.
 \\[8pt]
-During the project development, our team has been dedicated to understanding
-this need and has endeavoured to offer software that timely satisfies this type
-of traveller, automating flight search processes and establishing intelligent
-algorithms that enable the comparison of offers and notification of the most
-suitable ones. It has been very interesting to meet this type of user and
-understand the time they devote to individually searching for frequently
-undertaken trips. Therefore, we highly value the proposal of \emph{Recurrent
-	Travellers} application.
+The project and application have been developed using well-known patterns and
+architectures widely used in companies and open-source projects. These
+architectures have proven to meet the application requirements, providing
+scalability, maintainability, and robustness. The hexagonal architecture
+facilitated seamless integration with external services while maintaining a
+layered and separated architecture. Additionally, the adoption of DDD
+(domain-driven design) enabled consistent communication among the frontend,
+backends, and product owner, ensuring a shared understanding of the system's
+domain.
+\\
+The utilization of these patterns, ideas, and architectures has significantly
+streamlined development time for both frontend and backend components, while
+ensuring the application's maintainability and scalability.
 \\[8pt]
-However, the risks and time limitations described in the corresponding section
-were part of the final delivered outcome. The delivered software is useful and
-meets the primary user need, but it has the potential to grow, become more
-user-friendly, capture more preferences, and even connect to more data sources
-both for obtaining flight information and providing more comprehensive
-notifications to users.
+In modern times, there are numerous solutions that simplify the deployment of
+projects, ranging from simple to complex ones. These solutions often rely on
+cloud services, such as Google Cloud or AWS, to name the most famous ones. In
+this case, Google Cloud and Vercel have been chosen, simplifying the deployment
+process and eliminating the need for local or internal servers. The utilization
+of cloud services offers various benefits, including automated scalability, high
+availability, efficient management of infrastructure resources, and built-in
+security measures.
+\\[8pt]
+Alongside the cloud environment, all projects have taken advantage of
+CI/CD (continuous integration/continuous development). The automation of code
+building, testing and deployment have enabled faster delivery of new features
+and bug fixes. Furthermore, it has fostered the team in terms of collaboration and
+efficiency by ensuring stability and code quality \emph{throughout all stages of
+	the development cycle}.
+\\[8pt]
+In the context of frontend development, the benefits of utilizing a hexagonal
+architecture have become evident. Although it is not common to employ such an
+architecture in frontend projects that use component-based frameworks, it has
+demonstrated significant potential in various aspects. These advantages include
+code sharing between frontends, simplified code splitting to reduce the amount
+of JavaScript served to users, and improved maintainability and scalability of
+domain-specific code.
+\\
+One particular note is the ability to completely separate domain logic and
+implementation from the frontend application. This separation has streamlined
+the frontend development experience and simplified UI testing, which is often
+complex. However, it is important to acknowledge that companies aiming for rapid
+product delivery may choose to keep business logic tightly coupled with the
+frontend, as decoupling can be time-consuming.
+\\[8pt]
+Furthermore, the implementation of CI/CD in frontend development has reaffirmed
+the importance of this practice in delivering higher code quality and a more
+robust application.
 \end{document}
