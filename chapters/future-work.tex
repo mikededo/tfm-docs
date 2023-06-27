@@ -2,4 +2,62 @@
 
 \begin{document}
 \chapter{Future work}
+As a final chapter of this project, the goal is to point out different points
+that could: extend the features of the application, improve current features,
+and improve the current developer experience and the application environment. It
+is important to note that this chapter will only focus in the future work that
+could be done regarding the frontend application, which will most likely have
+implications in the backend.
+\\[8pt]
+Firstly, regarding future features, the application could have a subscrition
+system, that would limit the user in the amount of travels or queries they can
+do, for a certain period of time. These limitations would have to be
+implemented in the frontend, ensuring that the user can or cannot do certain
+actions, regarding their status.
+\\
+Another great addition would be the possibility for the user to know how many
+alerts have been sent, as it was first designed\footnote{In the dashboard
+	design, each item of the table has a red dot with a text of how many new alerts
+	there are}. However, due to the lack of time and not being part of the MVP, this
+feature has not been implemented in the backend.
+\\[8pt]
+Secondly, regarding current features to be improved, I would strongly recommend
+spending time in tracking user behaviour, in order to see how the application it
+is used. This tracking is normally avoided by start-ups or small companies,
+because the harsh it can be to implement. Nonetheless, it can provide rich
+insights about the users using the application, and how it is used.
+\\
+Furthermore, even though the user experience is decent (performant, concise and
+intuitive UI), I strongly believe it can be improved. Small animations, improved
+page transitions or even a more colourful UI, would provide a nearly excellent
+UI and UX.
+\\[8pt]
+Thirdly, regarding current features to be improved, there are a few that are
+better listed than explained:
+\begin{enumerate}
+	\item\textbf{Improved code splitting}. Even though this is already done by
+	default in Next.js, each page still serves a generous amount of bundled
+	code. The frontend should be as light as possible, in order to reduce the JS
+	sent to the user. Since the architecture of the projet has been strictly
+	layered, a good performance improvement could be an improved code-splitting
+	system.
+	\item\textbf{Taking full advantage of Next.js and Vercel}. During the
+	implementation of this project, Vercel has launched many new features that
+	provide many enhancements to the latests Next.js versions. Even though this
+	project uses Next.js 13, most of these improvements work for versions 13.x.
+	Furthermore, since the deployment is done in Vercel, even more enhancements
+	can be used.
+	\item\textbf{E2e testing implementation}. Due to the lack of time, and the
+	work that is required to configure e2e tests, this have not been done.
+	Thus, spending time in implementing e2e tests, with an environment as close
+	to production as possible, would allow the developers to ship new features
+	ensuring that the shipped code does not break current functionalities.
+	\item\textbf{Improved CI pipeline}. The current pipeline is decent, yet
+	not fast enough. Currently, for each run, all npm packages are installed,
+	which leads to an execution time of around 5 minutes, 4 of which are just
+	because of the installation. This issue can be addressed by many solutions
+	such as GitHub actions caching, or even Nx Cloud. The idea of this feature
+	would be to implement such caching in order to provide a better developer
+	experience, as well as reducing the resources used in pipelines.
+\end{enumerate}
 \end{document}
