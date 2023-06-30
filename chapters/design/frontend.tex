@@ -5,11 +5,11 @@
 The frontend structure has already been introduced in previous sections,
 however, the goal of this section is to provide a deep dive into the decisions
 that have led to the chosen structure. Furthermore, as this thesis is based in
-the frontend application development, it is more explanatory than the backend
-structure section.
+the frontend application development, it is explained in more detail than the
+backend structure section.
 \subsection{Initial challenges}
-Before defining how would the repository or repositories of the frontend would
-be, a first challenge arose regarding the usage of hexagonal architecture.
+Before defining how would the repository or repositories of the frontend be, a
+first challenge arose regarding the usage of hexagonal architecture.
 \\
 While the hexagonal architecture can be applied to various types of
 applications, including frontend applications, it is not commonly used in modern
@@ -58,7 +58,7 @@ require a high level of modularity, testability, and extensibility. However,
 it's important to consider the trade-offs in terms of complexity and developer
 experience before adopting this architecture in a frontend context.
 \\[8pt]
-Taking this into account, two options software design ideas were over the table:
+Taking this into account, two options software design ideas were on the table:
 \begin{enumerate}
 	\item Finding a code structure that would allow the developers to apply most
 	      of the hexagonal architecture patterns.
@@ -240,11 +240,11 @@ components, and its specific framework implementation.
 \subsection{Domain architecture}
 The domain has to be understood as a package, even though it uses the same
 naming as the \emph{domain} from the hexagonal architecture principles. The
-domain package it is separated in three layers: domain, application, and
+domain package is separated in three layers: domain, application, and
 infrastructure. Each layer corresponds to each layer in the hexagonal
 architecture and is going to be developed accordingly. However, the
-infrastructure layer is slightly different from it commonly is. Normally, the
-last layer of the HA\footnote{Hexagonal architecture, for short} is the
+infrastructure layer is slightly different from what it commonly is. Normally,
+the last layer of the HA\footnote{Hexagonal architecture, for short} is the
 infrastructure, yet in this specific design, it will only be the last layer of
 the domain package. This last layer is going to be used in the frontend, which
 is the last layer of the architecture, as the frontend will always be above the
@@ -256,12 +256,12 @@ architecture.
 \end{figure}
 As explained previously, the domain must be frontend framework independent,
 therefore it should not know anything about what is in the outer layer. This
-respects to the hexagonal architecture principles and allow us to have a domain
+respects to the hexagonal architecture principles and allows us to have a domain
 package that can be shared by many frontends, independent of their technology.
 \subsubsection{Infrastructure layer}
-The application layer has little to add, since it does not differ an
-implementation that can be found in other projects that use hexagonal
-architecture.
+There is little to add regarding the application layer, since the implementation
+does not differ from any other that can be found in other projects that use the
+hexagonal architecture
 \\[8pt]
 Delving deeper into the structure of the domain package, the domain and
 application layers have been implemented following the principles of the
@@ -371,7 +371,7 @@ each library will be compiled and used independently. In the long term, the team
 could have a unique design system, implemented in different languages or
 frameworks.
 \\[8pt]
-These components should be domain independent, therefore they should as much
+These components should be domain independent, therefore they should be as much
 extendable as possible. With the appearance of React, component-based frameworks
 have adopted the principle of \emph{composition over inheritance}. This
 principle encourages building components by composing smaller, reusable
@@ -400,7 +400,8 @@ This approach aligns with the component nature of frameworks like React
 and Vue, enabling developers to build flexible and reusable UI components that
 can adapt to various application requirements.
 \\[8pt]
-Taking into account our current architecture, by adding the component library:
+Taking into account our current architecture, by adding the component library,
+the schema looks as:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{./assets/ui-core.png}
@@ -437,8 +438,8 @@ chapters.
 The implementation of the site package will be explained in the following
 chapter, as it will focus on such implementation, explaining the decisions taken
 in order to use all the power of Next.js, in order to provide a better user
-experience. To sum up with this chapter, the integration of the site package
-with the previous packages is:
+experience. To sum up this chapter, the integration of the site package with the
+previous packages is:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{./assets/ui-core-site.png}

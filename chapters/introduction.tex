@@ -12,7 +12,7 @@ to offer an innovative solution for those users who frequently travel for work
 or personal reasons, through the creation of an application that allows them to
 be notified of opportunities on their regular routes.
 \\[8pt]
-This masters' thesis is framed in the ambit of project planning and management,
+This masters' thesis is framed in the context of project planning and management,
 software design and clean software architectures, databases, testing, user
 interface design and user experience.
 \section{Project structure}
@@ -60,7 +60,7 @@ In the post-pandemic work (2023), commercial aviation continues to be efficient,
 resilient and a key component to the development of the modern world. According
 to the annual report by IATA\cite{iata-report}, it is expected that by the end
 of 2023, all regions will have surpassed pre-pandemic flight demand.
-Additionally, the charts how an average positive variation of 5.4\% points in
+Additionally, the charts show an average positive variation of 5.4\% points in
 real GDP in the coming years.
 \begin{enumerate}[label = -]
 	\item For 2023, it is projected that the number of passengers will exceed
@@ -76,7 +76,7 @@ promising and expansive future for the sector.
 	\caption{Evolution of flight demand of Airbus flights in the pre-pandemic
 		world vs the post-pandemic.}
 \end{figure}
-Within this context of growth, it has appeared another type of user: recurrent
+Within this context of growth, another type of user has emerged: recurrent
 travellers. These travellers, whether due to work, family or personal reasons,
 have incorporated the use of planes into their routine periodically throughout
 the year.
@@ -146,31 +146,31 @@ distinguish between general concepts, independent of the technology and
 environment in which they will be applied, and more specific concepts for the
 backend and frontend development.
 \subsection{General concepts}
-Before starting, it has to be taken into account the concepts about software
-architecture and design in the different applications to develop. As explained
+Before starting, it has to be taken into account the concepts of software
+architecture and design in the different applications to develop. As mentioned
 in the goals of the project, the software to be developed should be scalable,
 maintainable and robust.
 \\[8pt]
 In first place, it is essential to consider the meaning of software design.
 Software design refers to the creation of a logical and organized structure
-taking into account from the architecture, to modularity, reusability and
-readability of the code.
+taking into account the architecture, modularity, reusability and readability of
+the code.
 \\[8pt]
 Therefore, as a team we opted to apply hexagonal architecture as the foundation
 of our applications. Hexagonal architecture is a software pattern whose goal is
-to separate between business logic of its technical concerns. In order words, it
+to separate between business logic from its technical concerns. In order words, it
 separates the domain of an application from the logic it may have. It also
 promotes a greater independence between the components and simplifies the
 adaptation to underlying technological changes. Additionally, it promotes
 modularity and code reusability. The clear separation of responsibilities of
-each layer and component, it facilitates the maintenance and evolution of
+each layer and component facilitates the maintenance and evolution of
 applications over time. Another important aspect about hexagonal architecture is
 its focus on interfaces and contracts. The definition of such interfaces and
 contracts ensures a more efficient communication and facilitates the
 integration with other services or external systems.
 \\
 Alongside hexagonal architecture, the team has opted to apply domain driven
-design in our projects. DDD is a methodology that it is focused in modelling the
+design in our projects. DDD is a methodology that focuses on modelling the
 core business, focusing on specific concepts and rules of the domain. In this
 project, DDD allows to precisely define entities, value objects and aggregates
 from the current domain. Furthermore, the domain driven design allows the team
@@ -223,15 +223,15 @@ integration of different modules or components of the system. By simulating the
 real usage, it becomes easier to identify problems in communication between
 components, errors in business logic, or differences in user experience.
 \\
-The combination of both type of tests, unit and functional, provides a
+The combination of both types of tests, unit and functional, provides a
 comprehensive testing approach that covers both the internal validation of each
 component and the overall verification of the system as a whole.
 \subsection{Backend concepts}
 The backend for the Recurrent travel application is the core of data processing
 in order to simplify the user experience in terms of finding travels. This
-application layer it is crucial for its functionality and system performance.
+application layer is crucial for its functionality and system performance.
 However, it is not directly exposed to the client, meaning that it will require
-of a frontend.
+a frontend.
 \\
 When developing the frontend, it is really important to keep scalability and
 performance as the two main factors of the applications.
@@ -439,16 +439,6 @@ problem without the need for any configuration.
 	\includegraphics[width=0.2\textwidth]{./assets/logos/next-logo.png}
 	\caption{Next logo}
 \end{figure}
-Development with Next.js involves structuring the code in a specific way so that
-the compiler can generate packages in the most efficient manner, avoiding
-unnecessary code being sent to the client and thus reducing page load time. This
-feature is known as code-splitting.
-\\
-React is a framework designed to simplify the construction of web components. As
-it gained popularity, developers started building full-fledged applications
-based on React. However, this meant serving a large amount of JS code to the
-client, which slowed down webpage loading. Next.js automatically solves this
-problem without the need for any configuration.
 \subsection{Unit and acceptance testing}
 The importance of testing has already been mentioned, and the client is no
 exception. Testing the client brings the same benefits as testing the server, as
@@ -462,10 +452,10 @@ testing with different libraries.
 At the unit testing level, both for the domain code and the component code, the
 Jest library has been used. Jest is a unit testing and mocking library developed
 and maintained by Facebook. Currently, it is one of the most famous, if not the
-most famous, libraries for testing. It provides a powerful CLI with the ability
-to run tests on modified code. It has also gained popularity for its easy
-integration with all types of repositories, as its configuration is
-straightforward.
+most famous, libraries for testing. It provides a powerful CLI\footnote{Command
+	line interface} with the ability to run tests on modified code. It has also
+gained popularity for its easy integration with all types of repositories, as
+its configuration is straightforward.
 \\
 However, Jest does not provide all the tools to, for example, test component
 code in an isolated environment. In conjunction with Jest, a library has been
@@ -493,7 +483,7 @@ interested in the project, as well as understanding their need.
 The next sections, the interested parties will be identified for the project. It
 has been decided to organize the stakeholders in a power/interest
 model\cite{stakeholders-power-interest} in order to simplify the visualization
-of the information and simplify the analysis. Such model can be widely found in
+of the information and simplify the analysis. Such a model can be widely found in
 the definition of engineering requirements.
 \begin{figure}[H]
 	\centering
@@ -501,7 +491,7 @@ the definition of engineering requirements.
 	\caption{Representation of the stakeholders with the power-interest model}
 \end{figure}
 \begin{enumerate}[label = -]
-	\item \textbf{Lower power and lower interest}
+	\item \textbf{Low power and lower interest}
 	      \begin{enumerate}[label = -]
 		      \item \textbf{Competitors}: Other companies that provide equal or
 		            similar solutions in the market.
@@ -511,7 +501,7 @@ the definition of engineering requirements.
 	\item \textbf{Lower power and high interest}
 	      \begin{enumerate}[label = -]
 		      \item \textbf{Final users}: Recurrent travellers that will habitually
-		            use the application as well as taking advantage of the
+		            use the application as well as take advantage of the
 		            notifications received.
 		      \item \textbf{Families or recurrent travel companies}: people that
 		            could be indirectly benefited from the application as it
@@ -521,13 +511,13 @@ the definition of engineering requirements.
 	\item \textbf{High power and lower interest}
 	      \begin{enumerate}[label = -]
 		      \item \textbf{API providers and external services}: Companies that
-		            will provide with the API servers and services that will be used
+		            will provide he API servers and services that will be used
 		            in the application development, yet they are not directly
 		            involved with the project.
 	      \end{enumerate}
 	\item \textbf{High power and high interest}
 	      \begin{enumerate}[label = -]
-		      \item \textbf{Developers}: The team of 4 developers that will work in
+		      \item \textbf{Developers}: The team of 4 developers that will work on
 		            the design, implementation and deployment of the application.
 		      \item \textbf{Project responsible}: The person responsible for
 		            supervising the project and providing guidance to the
@@ -574,7 +564,7 @@ application:
 	      different service providers. Even though Skyscanner is a popular tool
 	      to find travel offers, it is not specifically designed to attend the
 	      necessities of recurrent travellers, as it does not provide the
-	      configuration of time schedule, frequency and rote.
+	      configuration of time schedule, frequency and route.
 \end{enumerate}
 To sum up, although there are several market alternatives in the travel-tech
 sector, none of them specifically and comprehensively address the needs of
@@ -746,7 +736,7 @@ responsibilities. This division has allowed the team members, each with
 different areas of expertise, be able to provide the project with their
 knowledge in such areas.
 \\
-There have been bi-weekly meetings, with the goal to share to the team and the
+There have been bi-weekly meetings, with the goal to share with the team and the
 team tutor what has been done during the last two weeks, as well as planning
 what should be done the following. Furthermore, each meeting was an opportunity
 to discuss with the tutor some of the project features and functionalities.

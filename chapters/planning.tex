@@ -1,4 +1,4 @@
-\documentclass[../memory.tex]{subfiles}
+planning\documentclass[../memory.tex]{subfiles}
 
 \begin{document}
 \chapter{Planning}
@@ -69,9 +69,9 @@ two weeks to finish the prototypes, even though there were some part that would
 change in a future.
 \\
 The design not only helped us visualize the entities and important parts of our
-application, but also helped me architecture the monorepository. Once tool used
-to simplify the developer experience is Nx. Using such build system, tasks as
-having internal libraries and separated applications are easily handled.
+application, but also helped me to architecture the monorepository. One tool
+used to simplify the developer experience is Nx. Using such build system, tasks
+as having internal libraries and separated applications are easily handled.
 Therefore, the goal of the sprint 1 was to set up the repository and have it
 ready to roll. As I was defining the architecture of it, I was able to test
 possible use cases that I could come across while developing the frontend. This
@@ -86,33 +86,6 @@ paradigm. As a result, applying these concepts to the frontend posed a
 significant challenge. More details about the final design will be provided in
 subsequent chapters.
 \subsection{Sprint 2 and 3}
-Once the architecture was defined, the first goal of the sprint was to develop
-the frontend domain logic for user sign up and sign in. As the first code
-written for the core frontend, it was important to establish a solid structure
-that could easily accommodate changes. The initial architecture planning proved
-successful, with the following benefits:
-\begin{enumerate}[label = -]
-	\item The hexagonal architecture layers (domain, application, and
-	      infrastructure) could be easily decoupled.
-	\item The structure could be easily refactored and scaled as needed.
-	\item The domain logic was separated from the frontend implementation, making
-	      it reusable.
-\end{enumerate}
-Once the domain was defined and ready to be connected to a frontend application,
-the next step was to implement the authentication pages. This process was
-divided into two steps:
-\begin{enumerate}[label = \arabic{*}.]
-	\item Since most components had yet to be created, an initial implementation
-	      was created in the respective package. This implementation was open to
-	      modifications and designed to be reusable within different applications,
-	      although it was already attached to the React framework.
-	\item With the components created, and the business logic defined, the last
-	      step was to connect both through the view layer.
-\end{enumerate}
-Since there was not a lot of logic involved, it was possible to stick to the
-original plan, and start developing the frontend views (log in and register
-pages).
-\\[8pt]
 Once the logic architecture had been defined, the goal of the sprint was to start
 developing the domain of the frontend that will contain the logic to sign up and
 sign in a user. Being the first code written in the core of the frontend, it was
@@ -182,7 +155,7 @@ depends on it. Knowing this issue, I came up with two solutions:
 	      updated accordingly. This implies that the team would have to focus on the
 	      migration in order to accept the new changes.
 \end{enumerate}
-In this case, second option was chosen as versioning the packages was not
+In this case, the second option was chosen as versioning the packages was not
 something planned from the starting point and, even though it is possible to be
 added, updating all frontends was more simple. Additionally, only one
 application had to be updated.
